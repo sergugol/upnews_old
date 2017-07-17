@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Газета "ЮЖНАЯ ПРАВДА"</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'> 
+    <script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27609226-1']);
+        _gaq.push(['_setDomainName', 'jssor.com']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- Google Counter End -->
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="logo" href="images/favicon.ico" type="image/x-icon">
+</head>
+
+<!-- ограничение распространения правил для контроллера только на те страницы, которые связаны этим котроллером  --> 
+<body class= '<%= controller.controller_name %>' onload="startTime()">
+	<% if notice %>
+		<p id="notice"><%= notice %></p>
+		<p id="alert"><%= alert %></p>
+	<% end %>
+
+	<div id="outer">
+		<%= render partial:  'shared/header' %>
+		
+		<div id="main">
+			<section id="news_bar">
+				  <%= yield :news_bar %>
+			</section>	
+			
+			<!-- div id="top_bar" -->
+				   <%= yield :top_bar %> 
+			<!-- /div -->
+
+			<section id="pdf_bar">
+				   <%= yield :pdf_bar %> 
+			</section>
+
+			<section id="articles_bar">
+				   <%= yield :articles_bar %> 
+			</section>
+
+			<section id="righ_bar">
+					<%=  yield :right_bar %>
+			</section> 
+
+			<section id="left_bar">
+					<%=  yield :left_bar %>
+			</section> 
+
+		</div> <!-- end .main --> 
+
+		<%= render partial:  'shared/footer' %>
+
+	</div> <!--end .outer-->
+</body>
+</html>

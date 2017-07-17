@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  contract: MyString
+  firm: MyString
+  web_site: MyString
+  e_mail: MyString
+  timing: 1
+  start_date: 2013-07-04 15:50:29
+  stop_date: 2013-07-04 15:50:29
+  comment: MyString
+  image_file_name: MyString
+  image_content_type: MyString
+  image_file_size: 1
+  image_updated_at: 2013-07-04 15:50:29
+  mode: MyString
+
+two:
+  contract: MyString
+  firm: MyString
+  web_site: MyString
+  e_mail: MyString
+  timing: 1
+  start_date: 2013-07-04 15:50:29
+  stop_date: 2013-07-04 15:50:29
+  comment: MyString
+  image_file_name: MyString
+  image_content_type: MyString
+  image_file_size: 1
+  image_updated_at: 2013-07-04 15:50:29
+  mode: MyString

@@ -1,0 +1,32 @@
+<div class = "editor">
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+
+<div style= "float:left; width:460px;">
+	<p> <b>Id:</b> <%= @article.id %> </p>
+	<p> <b>создано: </b><%= @article.created_at.strftime("%Y-%m-%d %H:%M") %> </p>
+	<p> <b>изменено: </b> <%= @article.updated_at.strftime("%Y-%m-%d %H:%M") %></p>
+	<p> <b>рубрика:</b>  <%= @article.rubric %> </p>
+	<p> <b>жанр:</b> <%= @article.genre %></p>
+	<p> <b>автор:   </b> <%= @article.author %></p>
+	<p>	<b>издание: </b><%= @article.edition %></p>
+	<p> <b>анонс:   </b> <%= @article.anonce %></p>
+</div>
+<div style= "float:right; width:460px; ">	
+	<h1><%= @article.title %></h1>
+	<p> <%= sanitize(truncate(strip_tags(@article.content), length: 500)) %> </p>
+	<!-- <p> <b>фото:    </b> <%= @article.image %> </p> -->
+	<% if @article.image? %>
+	  <%# image_tag @article.image_file_name, size: "200x120" %>
+	  <%= image_tag(@article.image.url, size: "200x120") %>
+	  <br />
+	<%# link_to @article.image.url, @article.image.url  %>
+	<%= @article.image_file_name + ",  размер:" + @article.image_file_size.to_s  %>
+	<% end %>
+</div>	
+	<div style = "clear:both; float:right; padding-right:20px;">
+	<%= link_to 'Редактировать', edit_article_path(@article) %> |
+	<%= link_to 'Список', articles_path %>
+	</div>
+</div>

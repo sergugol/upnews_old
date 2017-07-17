@@ -1,0 +1,47 @@
+<div class = "editor">
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+
+<div style= "float:left; width:470px;">
+  <p> <b>Контракт:</b> <%= @reclam.contract %> </p>
+
+  <p> <b>Рекламодатель:</b> <%= @reclam.firm %> </p>
+
+  <p> <b>Веб-сайт:</b> <%= @reclam.web_site %> </p>
+
+  <p>  <b>E-mail:</b> <%= @reclam.e_mail %> </p>
+
+  <p> <b>Интервал показа: </b> <%= @reclam.timing %>, сек </p>
+
+  <p> <b>Дата нач.:</b> <%= @reclam.start_date.strftime("%Y-%m-%d ") %> </p>
+
+  <p> <b>Дата кон.:</b> <%= @reclam.stop_date.strftime("%Y-%m-%d ") %> </p>
+
+  <p><b>Комментарий:</b> <%= @reclam.comment %> </p>
+  <p> <b>Дата обновления изображения:</b> <%= @reclam.image_updated_at.getlocal.strftime("%Y-%m-%d %H:%M") %> </p>
+
+  <p><b>Расположение на странице сайта:</b> <%= @reclam.mode %> </p>
+</div>
+
+<div style= "float:right; width:470px; ">
+  <% if @reclam.image? %>
+    <%= image_tag(@reclam.image.url, size: "170x275") %>
+    <%# @reclam.image_file_name  %>
+  <% end %>
+
+  <p> <b>Имя файла:</b> <%= @reclam.image_file_name %> </p>
+
+  <p> <b>Тип файла:</b> <%= @reclam.image_content_type %> </p>
+
+  <p> <b>Размер файла:</b> <%= @reclam.image_file_size %> байт </p>
+
+  
+</div>
+
+<div style = "clear:both; float:right; padding-right:20px;">
+  <%= link_to 'Редактировать', edit_reclam_path(@reclam) %> |
+  <%= link_to 'Список', reclams_path %>
+</div>
+
+</div>

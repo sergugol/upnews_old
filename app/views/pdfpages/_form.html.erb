@@ -1,0 +1,66 @@
+<div>
+<%= form_for(@pdfpage, html: { multipart: true}) do |f| %>
+  <% if @pdfpage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pdfpage.errors.count, "error") %> prohibited this pdfpage from being saved:</h2>
+
+      <ul>
+      <% @pdfpage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h4>Редактирование PDF-файлов . . . . Редактор: <%# current_editor.email %> </h4>
+  <div style = "float:left;">
+    <h3>Последние добавленные:</h3>
+    <% @pdfpages_last.each_with_index do |pdf, i| %>
+        <%= sprintf('"%s" № %s ... %s с.  %s ',pdf.edition, pdf.pdf_n, pdf.page_n, pdf.image_file_name) %> <br /> 
+    <% end %>
+  </div>
+  
+<div style = "float:left; margin-left:20px;">
+  <fieldset>   
+        <div class="field">
+          <%= f.label "Издание" %><br />
+          <%= select(:pdfpage,:edition, options_for_select([['Южная правда', 'Южная правда'], ['Вестник Прибужья', 'Вестник Прибужья'], ['Щотижня', 'Щотижня']], @pdfpage.edition || 'Южная правда')) %>
+        </div>
+        
+        <div class="field">
+          <%= f.label "Дата выпуска" %><br />
+          <%= f.date_select :pdf_date %>
+        </div>
+        
+        <div class="field">
+          <%= f.label "Номер выпуска ХХХ (внутри года)" %><br />
+          <%= f.number_field :pdf_n %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Номер выпуска ХХХХХ (сквозной)" %><br />
+          <%= f.number_field :pdf_nn, required: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label "Страница" %><br />
+          <%= f.number_field :page_n, range:1..16 %>
+        </div>
+    
+     
+      <div class="field" id="inp_image" style="float: right;">
+        <%= f.label "PDF-файл" %><br />
+        <%= f.file_field :image %>
+        <% if @pdfpage.image? %>
+          <%= image_tag @pdfpage.image_file_name, :size => "60x90" %>
+            <br />
+            <%= @pdfpage.image_file_name  %>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Сохранить" %>
+      </div>
+   </fieldset>
+</div>   
+<% end %>
+</div>

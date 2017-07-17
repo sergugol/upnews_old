@@ -1,0 +1,83 @@
+  <div>
+  <%= form_for(@article, html: { multipart: true}) do |f| %> 
+  <%# form_for(@article, url: articles_path, html: { multipart: true}) do |f| %>
+    <% if @article.errors.any? %>
+      <div id="error_explanation">
+        
+        <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+        <ul>
+          <% @article.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %> <!-- do -->
+        </ul>
+
+      </div> <!-- error explanation -->
+    <% end %>  <!-- if -->
+
+  <p>Звездочкой (*) помечены обязательные для ввода поля</p> 
+  <div class="field" id="inp_genre">
+    <%= f.label "*вид статьи" %>
+    <%= select(:article,:genre, options_for_select([['статья', 'статья'], ['новость', 'новость'], ['тема дня', 'тема дня'], ['топ', 'топ']], @article.genre || 'новость')) %>
+  </div>
+
+  <div class="field" id="inp_rubric">
+    <%= f.label "*рубрика" %>
+    <%= select(:article, :rubric, options_for_select([['Политика', 'Политика'], ['Власть', 'Власть'], ['Экономика', 'Экономика'], ['Социум', 'Социум'], ['Культура', 'Культура'], ['Человек', 'Человек'], ['Мир', 'Мир'], ['Украина', 'Украина'], ['Николаевщина', 'Николаевщина']], @article.rubric || 'Политика')) %>
+  </div>
+
+  <div class="field" id="inp_zag">
+    <%= f.label "*заголовок" %>
+    <%= f.text_field :title, required: "true", size: 62 %>
+  </div>
+
+  <div class="field" id="inp_text">
+    <%= f.label "*текст статьи" %><br />
+    <%= f.text_area :content, required: "true", rows: 7, cols: 125 %>
+  </div>
+
+  <div class="field">
+    <%= f.label "анонс" %>
+    <%= f.text_field :anonce, size: 88  %>
+  </div>
+
+      <!--<div class="field" id="inp_created">
+        <%# f.label "* дата создания" %><br />
+        <%# f.datetime :created_at, required: "true" %>
+      </div>
+
+      <div class="field" id="inp_updated">
+        <%# f.label "* дата посл. изменения" %><br />
+        <%# f.datetime :updated_at, required: "true" %>
+      </div> -->
+
+      <%# <div class="field" id="inp_pubtime"%>
+      <%# f.label "* опубликовать [DD-MM-YYYY HH:MM]"  %>
+      <%# t=Time.now %>
+      <%# f.number_field :pub_time,  placeholder: t.strftime("%d-%m-%Y %H:%M"), required: "true" %> 
+      <%#/div %>
+
+      <div class="field" id="inp_author">
+        <%= f.label "* автор" %>
+        <%= f.text_field :author, required: "true" %>
+      </div>
+
+      <div class="field" id="inp_edition">
+        <%= f.label "издание" %>
+        <%= f.text_field :edition %>
+      </div>
+
+      <div class="field" id="inp_image">
+        <%= f.label "картинка" %>
+        <%= f.file_field :image %>
+        <% if @article.image? %>
+          <%= image_tag(@article.image.url, size: "200x120") %> <br />
+          <%= @article.image_file_name  %>
+        <% end %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit  "Сохранить" %>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,53 @@
+ <div class = "editor">
+
+<%# if editor_signed_in? %>
+    <div> <h4>Перечень СТАТЕЙ . . . . Редактор: <%#= current_editor.email %>   </h4> </div>
+
+    <nav class="action">
+        <%= link_to 'ДОБАВИТЬ СТАТЬЮ', new_article_path %>
+    </nav>
+
+    <div class = "digg_pagination"><%= will_paginate @articles %></div>
+    <table>
+        <header class = "articles_head">
+            <th>дата</th>
+            <th>рубрика</th>
+            <th>жанр</th>
+            <th>автор</th>
+            <th>заголовок</th>
+            <th>фото</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </header>
+    </br>
+        <% @articles.each do |article| %>
+            <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                <td><%= article.updated_at.getlocal.strftime("%m/%d/%y %H:%M ") %></td>
+                <td><%= truncate(strip_tags(article.rubric), length: 15) %></td>
+                <td><%= truncate(strip_tags(article.genre),  length: 10) %></td>
+                <td><%= truncate(strip_tags(article.author), length: 23) %></td>
+                <td><%= truncate(strip_tags(article.title),  length: 40) %></td>
+                <td><%= truncate(strip_tags(article.image_file_name),  length: 15) %></td>
+                <td class="list_actions"><%= link_to 'Просмотр', article %></td>
+                <td class="list_actions"><%= link_to 'Изменить', edit_article_path(article) %></td>
+                <td class="list_actions"><%= link_to 'Удалить', article, confirm: 'Уверены?', method: :delete %></td>
+             </tr>
+        <% end %>
+    </table>
+
+    <br />
+
+    <div class = "digg_pagination"><%= will_paginate @articles %></div>
+
+<%# else %>
+        <h3> Для просмотра и редактирования статей необходимо выполнить "Вход".  </h3>
+<%# end %> 
+
+</div>
+
+
+
+
+
+

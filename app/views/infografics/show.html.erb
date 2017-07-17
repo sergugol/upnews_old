@@ -1,0 +1,56 @@
+<div class = "editor">
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+
+<div style= "float:left; width:470px; padding-left:30px; ">
+
+   <% if @infografic.image? %>
+      <%= image_tag(@infografic.image.url, size: "200x500", :border=>0) %>
+   <% end %>
+</div>
+
+<div style= "float:right; width:470px; ">
+<%# link_to @infografic.image.url, @infografic.image.url  %>
+<%= @infografic.image_file_name  %>
+<p>
+  <b>Рубрика:</b>
+  <%= @infografic.rubric %>
+</p>
+
+<p>
+  <b>Комментарий:</b>
+  <%= @infografic.comment %>
+</p>
+
+<p>
+  <b>Дата (рубрика "День в истории"):</b>
+  <%= @infografic.history_date %>
+</p>
+
+<p>
+  <b>Имя файла:</b>
+  <%= @infografic.image_file_name %>
+</p>
+
+<p>
+  <b>Тип файла:</b>
+  <%= @infografic.image_content_type %>
+</p>
+
+<p>
+  <b>Размер файла:</b>
+  <%= @infografic.image_file_size %>
+</p>
+
+<p>
+  <b>Дата обновления изображения:</b>
+  <%= @infografic.image_updated_at %>
+</p>
+</div>
+
+<div style = "clear:both; float:right; padding-right:20px;">
+  <%= link_to 'Редактировать', edit_infografic_path(@infografic) %> |
+  <%= link_to 'Список', infografics_path %>
+</div>
+</div>

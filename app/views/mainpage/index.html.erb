@@ -1,0 +1,376 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<!-- <div class = "rubric_header_light" ><%= @daytheme_articles[0].genre %></div> -->
+<!-- ================== TOP_BAR =========================== -->
+<!-- div id="main_right" -->
+	<% content_for :top_bar do %> 
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('#slidorion').slidorion();
+			});
+		</script>
+
+			<% if not @find_result[0]  %>
+				<div id="slidorion" style="display:none;">
+			<% else %>	
+				<div id="slidorion">
+			<% end %>
+			
+			<div id="slider">
+				<% @daytheme_articles.each_with_index do |article, i| %>
+				  <div class="slide"><%= image_tag(article.image.url, class: 'slide_img') %></div>
+				<% end %>
+			</div>
+
+			<div id="accordion">
+				<% @daytheme_articles.each_with_index do |article, i| %>
+				<div class="link-header">
+				    <div class = "zag"><p><%= link_to article.title, 
+				    			controller: "mainpage",
+				    			action: "show_item",
+				    			id: article.id %></p>
+				    </div>			
+				</div>
+				<div class="link-content">
+					<p><%= sanitize(article.anonce) %></p>
+				</div>
+				<% end %>
+			</div>
+		</div> <!-- slidorion------------------------------------- -->
+	<% end %>
+	</div>
+
+	<!-- ================== end TOP_BAR =========================== -->
+
+	<!-- ================== PDF_BAR =========================== -->
+	<% content_for :pdf_bar do %>
+		<div class = "pdf_bar">
+			<div class = "rubric_header" > Инфографика </div>
+			<!-- % if @infografics_day.image? % -->
+			<% if @info_day_yes && @infografics_day[0].image? %>
+			<div class = "pdf">
+			  <a href="<%= @infografics_day[0].image.url %>"> <%= image_tag(@infografics_day[0].image.url, :border=>0) %> </a>
+			</div>
+			<% end %>	
+						
+			<% @infografics_misc.each_with_index do |infoblock, i| %>
+				<% if infoblock.image? %>
+				<div class = "pdf">
+							<a href="<%= infoblock.image.url%>"><%= image_tag(infoblock.image.url, :border=>0) %> </a>
+				</div>
+				<% end %>	
+			<% end %>
+						
+			<div class = "rubric_header">PDF-файлы	</div>
+			<div class = "pdf">
+				<!-- "Южная правда"(PDF) -->
+				<%= link_to(image_tag("PDF_UP.png", :alt => '"Южная правда"(PDF)'), 
+				uppdf_path, action: "uppdf") %>
+			</div>
+			
+			<div class = "pdf">
+				<!-- "Вестник Прибужья"(PDF) -->
+				<%= link_to(image_tag("PDF_VP.png", :alt => '"Вестник Прибужья"(PDF)'), 
+				vppdf_path, action: "vppdf") %>
+			</div>
+			
+			<div class = "pdf">
+				<!-- "Щотижня"(PDF) -->
+				<%= link_to(image_tag("PDF_TD.png", :alt => '"Щотижня"(PDF)'), 
+				tdpdf_path, action: "tdpdf") %>
+			</div>
+
+		</div>
+	<% end %>
+
+	<!-- ================== end PDF_BAR =========================== -->
+
+	<!-- ========== ARTICLES ====================================== -->
+
+	<% content_for :articles_bar do %>
+		<% rubric_item = [@politics_articles, @authority_articles, @economics_articles, @socium_articles, @culture_articles, @people_articles] %>
+		
+		<% rubric_item.each do |r_item| %> 
+		<div class = "rubric_box">
+			<div class = "rubric_header" >
+				<div class = "quadro"><p></p></div><div class = "rubric_name"> <%= r_item[0].rubric %></div>
+			</div>
+			
+			<div class="foto_box">  <!-- ============== FOTO_BOX ============== -->
+			<% foto_article = r_item[1] %>
+			<% if foto_article.image? %>
+				<%= image_tag(foto_article.image.url, size: "150x100", class: 'list_img') %>
+			<% end %>
+					<div class="article_info">
+					<div>
+						<p class = "ntime"><% ndate = foto_article.created_at.getlocal %> 
+	          			<%= ndate.strftime("%d/%m %H:%M") %></p>
+					</div>
+					<div class="zag">
+						<%= link_to foto_article.title, 
+						controller: "mainpage",
+						action: "show_item",
+						id: foto_article.id %> 
+					</div>
+					<p class="anonce"> 
+						<%= sanitize(truncate(strip_tags(foto_article.anonce), length: 190, separator: ' ')) %>
+					</p>
+				</div><!-- article_info -->
+			</div><!-- foto_box -->
+
+			<div class="set_box">  <!-- ============== SET_BOX ============== -->
+			<% r_item.slice(1..5).each_with_index do |set_article, i| %>
+				<% if i > 0 then%>
+				<div class="article_info">
+					<div class = "ntime">
+						<% ndate = set_article.created_at.getlocal %>
+						<%= ndate.strftime("%d/%m %H:%M") %>
+					</div>
+					<div class="zag">
+						<%= link_to set_article.title, 
+						controller: "mainpage",
+						action: "show_item",
+						id: set_article.id %> 
+					</div>
+					<p class="anonce"> 
+						<%= sanitize(truncate(strip_tags(set_article.anonce), length: 165, separator: ' ')) %> 
+					</p>
+				</div><!-- article_info -->
+				<% end %>
+			<% end %>
+			</div> <!--end set_box -->
+			
+			<div class="top_box"> <!-- ============== TOP_BOX ============== -->
+				<div class = "rubric_header" >
+					топ-статья
+				</div>
+				<% top_article = r_item[0] %>
+				<% if top_article.image? %>
+					<div class = "top_img">
+						<%= image_tag(top_article.image.url, size: "150x100", class: 'list_img') %>
+					</div>
+				<% end %>
+				<div class="article_info">
+					<div class = "ntime">
+							<% ndate = top_article.created_at.getlocal %>
+							<%= ndate.strftime("%d/%m %H:%M") %>
+					</div>
+						<div class="zag"> <%= link_to top_article.title, 
+						controller: "mainpage",
+						action: "show_item",
+						id: top_article.id %>
+					</div>
+					<p class="anonce"> 
+						<%= sanitize(truncate(strip_tags(top_article.anonce), length: 150, separator: ' ')) %>
+					</p>
+				</div><!-- article_info -->
+			</div><!-- top_box -->
+		</div> <!-- rubric_box -->
+		<% end %>
+	<% end %>  <!-- ========== end ARTICLES ====================================== -->
+<!-- /div --> <!--end "main_right" -->
+
+<!-- ========================= NEWS_BAR ====================================== -->
+<% content_for :news_bar do %>
+	
+	<div class = "news_rubric" >Николаев и область</div>
+	<% @news_nikolaev_articles.each do |article| %>
+		<section class="news_entry">
+			<div class="news_info">
+				<div class = "ntime" style = "display: inline">
+					<% ndate = article.created_at.getlocal %>
+					<%= ndate.strftime("%d/%m %H:%M") %>
+				</div>
+		    	<header class="news_header"><%= link_to article.title, 
+		    			controller: "mainpage",
+		    			action: "show_item",
+		    			id: article.id %></header>
+				<!-- <p class="anonce"> <%= sanitize(article.anonce) %>  </p>-->
+			</div>
+		</section>
+	<% end %>
+
+	<div class = "news_rubric" >Украина и Мир</div>
+	<% @news_world_articles.each do |article| %>
+		<section class="news_entry">
+			<div class = "ntime" style = "display: inline">
+				<% ndate = article.created_at.getlocal %>
+				<%= ndate.strftime("%d/%m %H:%M") %>
+			</div>
+		    <header class="news_header"><%= link_to article.title, 
+		    		controller: "mainpage",
+		    		action: "show_item",
+		    		id: article.id %>
+		    </header>
+		</section>
+	<% end %>	
+
+	<% @news_ukraine_articles.each do |article| %>
+		<section class="news_entry">
+			<div class="news_info">
+				<div class = "ntime" style = "display: inline">
+					<% ndate = article.created_at.getlocal %>
+					<%= ndate.strftime("%d/%m %H:%M") %>
+				</div>
+		    	<header class="news_header"><%= link_to article.title, 
+		    			controller: "mainpage",
+		    			action: "show_item",
+		    			id: article.id %></header>
+				<!-- <p class="anonce"> <%= sanitize(article.anonce) %>  </p>-->
+			</div>
+		</section>
+	<% end %>
+	
+	<section class="reclam_box">
+			<!-- <div class = "rubric_header"> Реклама </div> -->
+			<div class="reclam_image">
+<!-- ============ BEGIN top part of jssor-slider script ===== -->	
+    <script>
+        //Buy Development Kit for $10 at http://codecanyon.net/item/jssor-slider-120-slideshow-effects-banner-rotator/2797680?ref=jssor
+        //full javascript source code
+        //390+ caption transitions
+        //360+ slideshow transitions
+        //25+ professional themes + growing
+        //javascript compression tool
+        //license
+        //free upgrades, one time purchase, all later versions are free
+        //free support
+    </script>
+    <script type="text/javascript" src="../app/assets/javascripts/Jssor.Slider.Min.js">
+    </script>
+    <script>
+        jssor_slider1_starter = function (containerId) {
+            var jssor_slider1 = new $JssorSlider$(containerId, {
+                $ShowLoading: true,                                 //[Optional] Show loading screen or not default value is false
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlayInterval: 15000,							// delay, msec
+
+                $PlayOrientation: 2,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, default value is 1
+                $DragOrientation: 2,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+                $DirectionNavigatorOptions: {
+                    $Class: $JssorDirectionNavigator$,              //[Requried] Class to create direction navigator instance
+                    $ChanceToShow: 2                                //[Required] 0 Never, 1 Mouse Over, 2 Always
+				}
+            });
+        };
+    </script>
+<!-- ============ END top part of jssor-slider script ===== -->
+
+<!-- ============ BEGIN bottom part of jssor-slider script ===== -->
+    <!-- Jssor Slider Begin -->
+    <div id="slider1_container" class="slider1" >
+
+        <!-- Loading Screen -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity:0.7; position: absolute; display: block;
+                background-color: #000000; top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+            <div style="position: absolute; display: block; background: url(../img/loading.gif) no-repeat center center;
+                top: 0px; left: 0px;width: 100%;height:100%;">
+            </div>
+        </div>
+
+        <!-- Slides Container -->
+        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 144px; height: 240px; overflow: hidden;">
+            <% @reclam_articles.each_with_index do |article, i| %>
+				<div><%= image_tag(article.image.url, size: "144x240")  %></div>
+			<% end %>
+        </div>
+        
+        <!-- DirectionNavigator Skin Begin -->
+        <style>
+            .slider1 .al, .slider1 .ar, .slider1 .aldn, .slider1 .ardn, .slider1 .alhv, .slider1 .arhv, .slider1 .aldn, .slider1 .ardn
+            {
+            	position: absolute;
+            	cursor: pointer;
+            	display: block;
+                /*background: url(../img/sprite-09.png) no-repeat;*/
+                overflow:hidden;
+                opacity: .3; filter:alpha(opacity=30);
+            }
+            .slider1 .al, .slider1 .alhv, .slider1 .aldn { background-position: 0px -50px; }
+            .slider1 .ar, .slider1 .arhv, .slider1 .ardn { background-position: -50px -50px; }
+
+            .slider1 .al:hover, .slider1 .alhv { opacity: .6; filter:alpha(opacity=60); }
+            .slider1 .ar:hover, .slider1 .arhv { opacity: .6; filter:alpha(opacity=60); }
+            
+            .slider1 .aldn { pacity: .2; filter:alpha(opacity=20); }
+            .slider1 .ardn { pacity: .2; filter:alpha(opacity=20); }
+        </style>
+        <!-- Arrow Left -->
+        <!--span u="arrowleft" class="al" style="width: 50px; height: 50px; top: 8px; left: 275px;"-->
+        </span>
+        <!-- Arrow Right -->
+        <!--span u="arrowright" class="ar" style="width: 50px; height: 50px; bottom: 8px; left: 275px"-->
+        </span>
+        <!-- DirectionNavigator Skin End -->
+        <a style="display: none" href="http://slideshow.jssor.com">Image Slider</a>
+        <!-- Trigger -->
+        <script>
+            jssor_slider1_starter('slider1_container');
+        </script>
+    </div>
+    <!-- Jssor Slider End -->
+<!-- ============ END bottom part of jssor-slider script ===== -->
+	</div>
+	</section>
+<!-- ================= weather informer ================= -->
+	<section> 
+		<div id="MeteoInformerWrap">
+		<script type="text/javascript" src="http://meteo.ua/var/informers.js"></script>
+		<script type="text/javascript">
+		      makeMeteoInformer("http://meteo.ua/informer/get.php?cities=112;113;731&w=144&lang=ua&rnd=0&or=vert&clr=21&dt=tomorrow&style=modern",144,930);
+		</script></div>
+	</section>
+<!-- ================= END of weather informer ================= -->
+
+<!-- ================= currency informer ================= -->
+	<section> 
+				<style>
+#IUAfinance36 { width: 144px; cursor: pointer;}
+#IUAfinance36 * {margin: 0; padding: 0;}
+#IUAfinance36 .content {overflow: hidden; padding: 4px; font-family: Arial; font-size: 10px; color: #000000; background: #f6f6f6; border: 1px solid #00529c;}
+#IUAfinance36 h1 {overflow: hidden; margin-top: -4px; font-size: 12px; font-weight: bold; height: 20px; line-height: 20px; color: #00529c;}
+#IUAfinance36 h1 span {float: left; white-space: nowrap;}
+#IUAfinance36 h1 i {float: right; display: inline-block; width: 36px; height: 15px; background: url(http://i.i.ua/v2/logo/logo_small_14_black.png) no-repeat 0 1px transparent; opacity: .3;}
+#IUAfinance36 a, #IUAfinance36 a:hover {border: none; text-decoration: underline; color: #00529c;}
+#IUAfinance36 dl {overflow: hidden; background: #ffffff; padding: 4px; margin-bottom: 4px;}
+#IUAfinance36 dl dt {font-weight: bold; font-size: 12px;}
+#IUAfinance36 dl dd {clear: left; border-top: 1px dotted #DDD;}
+#IUAfinance36 dl span {display: block; float: left; width: 39%; white-space: nowrap; text-align: right;}
+#IUAfinance36 dl span.th {width: 22%; text-align: left;}
+#IUAfinance36 dl dt span {font-size: 10px; font-weight: normal;}
+#IUAfinance36 dl dd span {line-height: 20px; font-size: 12px; font-family: Arial, serif;}
+#IUAfinance36 dl dd span img {vertical-align: middle; margin-right: 1px;}
+</style>
+<div id="IUAfinance36">
+	<div class="content">
+		<h1><span><a href="http://finance.i.ua/bank/15/" id="IUAfinance36TitleLink">Курсы валют</a></span><i></i></h1>
+		<dl id="IUAfinance36Embed"></dl>
+		<a href="http://finance.i.ua/">Курсы доллара, евро и рубля по банкам</a>
+	</div>
+</div>
+<script type="text/javascript">
+if (typeof(iFinance) == "undefined") {
+	if (typeof(iFinanceData) == "undefined") {
+		document.write('<scr' + 'ipt src="http://i.i.ua/js/i/finance_informer.js?1" type="text/javascript" charset = "windows-1251"></scr' + 'ipt>');
+		iFinanceData = [];
+	}
+	iFinanceData.push({b:15,c:[840,978,643],enc:0, lang:0,p:'36'});
+} else {
+	window['oiFinance36'] = new iFinance();
+	window['oiFinance36'].gogo({b:15,c:[840,978,643],enc:0, lang:0,p:'36'});
+}
+</script>
+
+	</section>
+<!-- ================= END of currency informer ================= -->	
+<% end %>	
+
+<!-- ================== NEWS_BAR =========================== -->
+	
+
+
+

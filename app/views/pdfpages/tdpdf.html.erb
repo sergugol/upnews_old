@@ -1,0 +1,36 @@
+<div class = "editor">
+
+<h1>PDF-файлы "ЩОТИЖНЯ"</h1>
+  
+    <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
+    <table>
+        <tr style = "padding:2px;">
+            <th>.........Издание.........</th>
+            <th>.....Дата.....</th>
+            <th>...NNN...</th>
+            <th>...NNNNN....</th>
+            <th>Cтр.</th>
+            <th>Ссылка</th>
+        </tr>
+
+       <% if @pdfpages.empty? %> 
+        <div> PDF-файлы отсутствуют. </div>
+        <% else %>         
+
+             <% @pdfpages.each do |pdfpage| %>
+             <tr>
+                <td><%= pdfpage.edition %></td>
+                <td><%= pdfpage.pdf_date %></td>
+                <td style="text-align:center;"><%= pdfpage.pdf_n %></td>
+                <td style="text-align:center;"><%= pdfpage.pdf_nn %></td>
+                <td style="text-align:center;"><%= pdfpage.page_n %></td>
+               <!-- <td><%# link_to pdfpage.image.url, pdfpage.image.url %></td> -->
+                <td><%= link_to pdfpage.image_file_name, pdfpage.image.url %></td>
+            </tr>
+            <% end %>
+        <% end %>
+    </table>
+    <br />
+
+    <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
+</div> <!-- PDF_editor -->

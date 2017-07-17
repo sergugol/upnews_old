@@ -1,0 +1,52 @@
+<div class = "editor">
+
+<%# if editor_signed_in? %>
+    <h4>Перечень PDF-ФАЙЛОВ . . . . Редактор: <%= current_editor.email %> </h4>
+    <nav class="action">
+        <%= link_to 'ДОБАВИТЬ PDF-файл', new_pdfpage_path %>
+    </nav>
+
+    <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
+    <table>
+        <tr style = "padding:2px;">
+            <th>Издание</th>
+            <th>Дата выпуска</th>
+            <th>NNN</th>
+            <th>NNNNN</th>
+            <th>№ стр.</th>
+            <th>PDF-файл</th>
+            <th>Розмер</th>
+            <th>Дата_обновл.</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+       <% if @pdfpages.empty? %> 
+        <div> PDF-файлы отсутствуют. </div>
+        <% else %>         
+
+             <% @pdfpages.each do |pdfpage| %>
+             <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+                <td><%= pdfpage.edition %></td>
+                <td><%= pdfpage.pdf_date %></td>
+                <td><%= pdfpage.pdf_n %></td>
+                <td><%= pdfpage.pdf_nn %></td>
+                <td><%= pdfpage.page_n %></td>
+                <td><%= pdfpage.image_file_name %></td>
+                <td><%= pdfpage.image_file_size %></td>
+                <td><%= pdfpage.image_updated_at.getlocal.strftime("%Y-%m-%d ") %></td>
+                <td><%= link_to 'Просмотр', pdfpage %></td>
+                <td><%= link_to 'Изменить', edit_pdfpage_path(pdfpage) %></td>
+                <td><%= link_to 'Удалить', pdfpage, confirm: 'Уверены?', method: :delete %></td>
+            </tr>
+            <% end %>
+        <% end %>
+    </table>
+    <br />
+
+    <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
+<%# else %>
+    <h3> Для просмотра и редактирования PDF-файлов необходимо выполнить "Вход".  </h3>
+<%# end %>
+</div> <!-- PDF_editor -->

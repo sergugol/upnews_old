@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  title: MyString
+  rubric: 1
+  content: MyText
+  undertitle: MyText
+  anonce: MyString
+  pub_time: 1
+  author: MyString
+  edition: 1
+  pdf_file: 1
+  priority: 1
+
+two:
+  id: 1
+  title: MyString
+  rubric: 1
+  content: MyText
+  undertitle: MyText
+  anonce: MyString
+  pub_time: 1
+  author: MyString
+  edition: 1
+  pdf_file: 1
+  priority: 1

@@ -1,0 +1,27 @@
+<div class = "editor">
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %>
+
+  <%= link_to 'Редактировать', edit_pdfpage_path(@pdfpage) %> |
+  <%= link_to 'Список', pdfpages_path %>
+
+  <p> <b>Издание:</b> <%= @pdfpage.edition %> </p>
+
+  <p> <b>Дата выпуска:</b> <%= @pdfpage.pdf_date %> </p>
+
+  <p> <b>Номер выпуска NNN:</b> <%= @pdfpage.pdf_n %> </p>
+
+  <p> <b>Номер выпуска NNNNN:</b> <%= @pdfpage.pdf_nn %> </p>
+
+  <p> <b>№стр.:</b> <%= @pdfpage.page_n %> </p>
+
+  <p> <b>PDF-файл:</b> <%= @pdfpage.image_file_name %> </p>
+
+  <p> <b>Размер:</b> <%= @pdfpage.image_file_size %> </p>
+
+  <p> <b>Дата изм.:</b> <%= @pdfpage.image_updated_at.getlocal %> </p>
+
+  <%= link_to 'Редактировать', edit_pdfpage_path(@pdfpage) %> |
+  <%= link_to 'Список', pdfpages_path %>
+</div>

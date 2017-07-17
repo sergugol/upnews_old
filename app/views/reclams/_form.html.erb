@@ -1,0 +1,84 @@
+<%= form_for(@reclam, html: {multipart: true}) do |f| %>
+  <% if @reclam.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reclam.errors.count, "error") %> prohibited this reclam from being saved:</h2>
+
+      <ul>
+      <% @reclam.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div> <h4>Редактирование РЕКЛАМЫ . . . . Редактор: <%# current_editor.email %>   </h4> </div>
+<fieldset>
+<div style="float:left;">
+   <p>Звездочкой (*) помечены обязательные для ввода поля</p> 
+
+      <div class="field">
+        <%= f.label "*№ контракта: " %>
+        <%= f.text_field :contract, required: "true" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "*Рекламодатель: " %><br />
+        <%= f.text_field :firm, required: "true" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Веб-сайт: " %> <%= f.text_field :web_site %>
+      </div>
+
+      <div class="field">
+        <%= f.label "E-mail: " %> <%= f.email_field :e_mail %>
+      </div>
+
+      <div class="field">
+        <%= f.label "*Интервал показа: " %> <%= f.number_field :timing, required: "true" %>, секунд
+      </div>
+
+      <div class="field">
+        <%= f.label "Старт показа: " %> <br /><%= f.datetime_select :start_date %>
+      </div>
+
+      <div class="field">
+        <%= f.label "*Стоп показа:  " %><br /> <%= f.datetime_select :stop_date, required: "true" %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Комментарий: " %><br /> <%= f.text_field :comment %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Расположение: " %>
+        <%= select(:reclam, :mode, options_for_select([['вверху', 'вверху'], ['справа-вверху', 'справа-вверху'], ['слева-внизу', 'слева-внизу'], ['внизу', 'внизу']], @reclam.mode || 'справа-вверху')) %>
+      </div>
+</div>
+
+<div style="float:right;">
+
+
+      <div class="field" id="inp_image">
+        <%= f.label "*Картинка: " %>
+        <%= f.file_field :image %>
+        <br />
+        <br />
+        <br />
+        <% if @reclam.image? %>
+            <%= image_tag(@reclam.image.url, size: "170x275") %>
+            <br />
+            <%= @reclam.image_file_name  %>
+            <br />
+        <% end %>
+      </div>
+   
+    <div class="actions">
+      <br />
+      <br />
+      <br />
+      <%= f.submit "Сохранить" %>
+    </div>
+</div>
+</fieldset>    
+<% end %>
+

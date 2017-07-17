@@ -1,0 +1,158 @@
+/* Slidorion Stylesheet */
+/* set UP */
+$c1: #000000; /*black*/
+$c2: #808080; /*gray*/
+$c3: #205DB0; /*dark-blue was:2222AA*/ 
+$c4: #BAE0F9; /* sky */
+$c5: #CC2222; /*red*/ 
+$c6: #FFFFFF; /*white*/
+$c7: #EEEEEE; /*light-gray*/
+$c8: #3C5AAF; /*blue-UP was:3355AA*/
+
+#slidorion {
+	visibility: visible;  /* hidden  */
+	float: left;
+	position: relative;
+	width: 768px;			/* -20 Set to slidorion width. Is equal to #slider + #accordion width */
+	height: 310px;			/* Set to slidorion height. Is equal to #slider and #accordion height */
+	padding: 0px;
+	margin-bottom: 16px;
+	background: $c2 + #444444; /* #AAA */
+	-webkit-box-shadow: 0 0 34px $c2; /*#bbb*/
+	-moz-box-shadow: 0 0 34px $c2;
+	box-shadow: 0 0 0px $c2;
+	/*box-shadow: 0 0 34px #bbb;*/
+
+	#slider {
+		width: 400px;			/* -20 Set to slider width */
+		height: 300px;			/* Set to slider height */
+		position: relative;     
+		float: left;
+		overflow: hidden;		/*  Hides the animations */
+	}
+
+	#slider > div {
+		position:absolute;
+		padding-top: 0px;
+		width:100%;
+		height:100%;
+	}
+
+	.slide_img {
+		position: absolute;
+		left: 7px;
+		top: 8px;
+		width: 400px;
+		height: 300px;
+	}
+
+	#accordion {
+	position: absolute;
+	width: 346px;			/* Set to accordion width */
+	height: 295px;			/* Set to image height */
+	/*background: $c5;  #777 */
+	-webkit-box-shadow: -3px 0px 3px -1px rgba(40,68,111,0.3);
+	-moz-box-shadow: -3px 0px 3px -1px rgba(40,68,111,0.3);
+	box-shadow: -3px 0px 3px -1px rgba(40,68,111,0.3);
+	z-index:999;
+	overflow: hidden;
+	top: 10px;
+	left: 410px;
+	}
+
+	#accordion > .link-header {
+	padding: 0;
+	color: #555;
+	background: $c2; /* #555 */
+	background: -moz-linear-gradient(top, $c2 59%, ($c2 - #222) 100%);
+	background: -webkit-linear-gradient(top, $c2 59%,$c2 100%);
+	background: -o-linear-gradient(top, $c2 59%,$c2 100%);
+	background: -ms-linear-gradient(top, $c2 59%,#dcdcdc 100%);
+	background: linear-gradient(top, $c2 59%,$c2 100%);
+	/*background: -moz-linear-gradient(top, #777 59%, #555 100%);
+	background: -webkit-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: -o-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: -ms-linear-gradient(top, #ededed 59%,#dcdcdc 100%);
+	background: linear-gradient(top, #ededed 59%,#dcdcdc 100%);*/
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dcdcdc',GradientType=0 );
+	border-top: 0px solid #ccc;
+	div.zag {margin: 0px;
+		      a {color: $c1;
+			 text-decoration: none;
+		      }
+	      p {font-size: 15px;
+	      font-weight: bold;
+	      padding: 5px 5px 5px 5px;
+	      margin: 0px 0px 0px 0px;
+	      font-family: sans-serif;
+	      }
+	  }
+	}
+
+	#accordion > .link-header:first-child {
+		border-top:none;
+		margin-top: 0px;
+	}
+
+	#accordion > .link-header:hover {
+		background: $c4 - #333; /* #777;*/
+		cursor: pointer;
+	}
+
+	#accordion > .link-header:visited {
+		a {
+			color: $c4;
+		}
+	}
+
+	#accordion > .link-header.active {
+		border-bottom: none;
+		background: $c6 !important; /* #AAA */
+		filter: none;
+		color: $c1;
+		a {
+			color: $c2;
+			text-decoration: none;
+			&:hover { background-color: $c4 - #333; }/* white*/
+		}
+	}
+
+	#accordion > .link-content {
+		height: 260px;			/* This height needs to be changed as it depends on the accordion height and number of tabs */
+		margin-top: 0 px; /* -10px; */
+		padding: 0 0 0 8px; /*16*/
+		border: none;
+		background: $c7; /* #AAA*/
+		/*background: -moz-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+		background: -webkit-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+		background: -o-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+		background: -ms-linear-gradient(top, #d6d6d6 0%,#ffffff 10%);
+		background: linear-gradient(top, #d6d6d6 0%,#ffffff 10%);*/
+		/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#ffffff',GradientType=0 );*/
+		overflow:auto;
+		p {
+			font-weight: normal;
+			font-size: 13px;
+			line-height:15px;
+			font-family: sans-serif;
+		}
+	}
+}
+#slidorion .nav {
+    position: absolute;
+    top: 200px;
+    width: 16px;
+    height: 27px;
+    z-index: 9999;
+    background: url('../img/arrows.png') 0 0 no-repeat;
+    cursor: pointer;
+}
+
+#slidorion .nav-left {
+	left: 30px;
+}
+
+#slidorion .nav-right {
+	right: 310px;
+	background-position: -16px 0;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>"ЮЖНАЯ ПРАВДА"</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+</head>
+
+<!-- WHAT FOR FILE -->
+
+<!-- ограничение распространения правил для контроллера только на те страницы, которые связаны этим котроллером --> 
+<body id="pageback" class= '<%= controller.controller_name %>' onload="startTime()">
+	<div id="outer">
+		
+		<%= render partial:  'shared/header' %>
+		
+		<div id="main" >
+			<section id="items_bar" >
+<h3> Телефоны редакции газеты "Южная правда"</h3>
+ <table>
+	<tr>
+		<td>Приемная главного редактора</td><td>37-00-47</td>
+	</tr>
+		<tr>
+		<td></td><td></td>
+	</tr>
+	<tr>
+		<th>Отделы</th><th></th>
+	</tr>
+	<tr>
+		<td>писем и социальных проблем</td><td>37-44-66</td>
+	</tr>
+	<tr>
+		<td>коммунального и городского хозяйства</td><td>37-33-25</td>
+	</tr>
+	<tr>
+		<td>экономики</td><td>37-23-24</td>
+	</tr>
+	<tr>
+		<td>политики</td><td>37-37-64</td>
+	</tr>
+	<tr>
+		<td>здравоохранения</td><td>37-23-24</td>
+	</tr>
+	<tr>
+		<td>агропромышленного комплекса
+</td><td>37-31-21, 37-31-73</td>
+	</tr>
+	<tr>
+		<td>правоохранительных вопросов</td><td>37-31-14</td>
+	</tr>
+	<tr>
+		<td>образования</td><td>37-00-66</td>
+	</tr>
+	<!--<tr>
+		<td>органов местного самоуправления</td><td>37-24-61</td>
+	</tr> -->
+	<tr>
+		<td>культуры</td><td>37-44-05</td>
+	</tr>
+	<tr>
+		<td>промышленности</td><td>37-43-57</td>
+	</tr>
+	<tr>
+		<td>компьютерный комплекс
+</td><td>37-19-50</td>
+	</tr>
+	<tr>
+		<td>рекламный отдел</td><td>37-14-44 (факс)</td>
+	</tr>
+		<tr>
+		<td></td><td></td>
+	</tr>
+	<tr>
+		<th>Приложения</th><th></th>
+	</tr>
+	<tr>
+		<td>«Вестник Прибужья»</td><td>37-44-05</td>
+	</tr>
+	<tr>
+		<td>«Щотижня»</td><td>37-05-28</td>
+	</tr>
+	<tr>
+		<td></td><td></td>
+	</tr>
+	<tr>
+	<td>«Южная региональная»</td><td>37-37-64</td>
+	</tr>
+<!--	<tr>
+		<td>«Спроси у власти»</td><td>37-33-25</td>
+	</tr> -->
+	<tr>
+		<td>Телефоны/факсы редакции</td><td>37-14-44, 37-43-86, 37-24-21</td>
+	</tr>
+	<tr>
+		<td>Бухгалтерия</td><td>37-44-57</td>
+	</tr>
+</table> 
+<h4>Адрес редакции: 54001, г. Николаев, ул. Адмиральская, 20.</h4>
+
+<a style= "color:#026" href="mailto: up@email.com.ua"><u>Написать письмо в редакцию.</u> </a>
+
+</section> 
+		</div> <!-- end .main --> 
+
+		<%= render partial:  'shared/footer' %>
+
+	</div> <!--end .outer-->
+</body>
+</html>

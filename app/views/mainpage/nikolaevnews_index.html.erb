@@ -1,0 +1,42 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<!-- ================== NEWS_BAR =========================== -->
+<% content_for :items_bar do %>
+	<div class = "rubric_header_index" >
+		<header> 
+			новости: Николаев и область 
+		</header>
+	</div>
+	<div class = "digg_pagination">
+		<%= will_paginate @nikolaevnews_articles %>
+	</div>
+	<br />
+	
+	<% @nikolaevnews_articles.each do |article| %>
+		<section class="article_list"> 
+		   	<div class = "ntime" style = "display: inline">
+				<% ndate = article.created_at.getlocal %>
+				<%= ndate.strftime("%d/%m/%Y  %H:%M") %>
+			</div>
+			<div class="zag"> 
+				<%= link_to article.title, 
+		    		controller: "mainpage",
+		    		action: "show_item",
+		    		id: article.id %></div>
+		    	<% if article.image? %>
+    				<%= image_tag(article.image.url, size: "75x50") %>
+    			<% end %>	
+		    <p class="anonce"> 
+				<%= sanitize(truncate(strip_tags(article.anonce), length: 200)) %> 
+			</p>
+		</section>
+	<% end %>
+
+<div class = "digg_pagination">
+	<%= will_paginate @nikolaevnews_articles %>
+</div>
+<% end %>	
+
+

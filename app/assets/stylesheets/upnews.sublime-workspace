@@ -1,0 +1,667 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"di",
+				"display"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"c",
+				"clear"
+			],
+			[
+				"b",
+				"border-color"
+			],
+			[
+				"f",
+				"font-size"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"padding-",
+				"padding-top"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"P",
+				"position"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"mi",
+				"min-width"
+			],
+			[
+				"m",
+				"max-width"
+			],
+			[
+				"he",
+				"min-height"
+			],
+			[
+				"v",
+				"vertical-align"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"s",
+				"sans-serif"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"h",
+				"h2	Tag"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"gr",
+				"greater_than_or_equal_to"
+			],
+			[
+				"t",
+				"title"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/serg/upnews/app/views/mainpage/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 855,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/serg/upnews/app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 2000,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/serg/upnews/app/controllers/mainpage_controller.rb",
+			"settings":
+			{
+				"buffer_size": 757,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/serg/upnews/app/views/articles/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 1596,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/serg/upnews/app/views/articles/show.html.erb",
+			"settings":
+			{
+				"buffer_size": 757,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<%= form_for(@article) do |f| %>\n  <% if @article.errors.any? %>\n    <div id=\"error_explanation\">\n      <h2><%= pluralize(@article.errors.count, \"error\") %> prohibited this article from being saved:</h2>\n\n      <ul>\n      <% @article.errors.full_messages.each do |msg| %>\n        <li><%= msg %></li>\n      <% end %>\n      </ul>\n    </div>\n  <% end %>\n\n  <!-- <div class=\"field\">\n    <%= f.label :id %><br />\n    <%= f.number_field :id %>\n  </div> -->\n\n  <div><p>Звездочкой (*) помечены обязательные для ввода поля</p> </div>\n  <div class=\"field\">\n    <%= f.label :\"* вид статьи (тема дня, статья, новость)\" %><br />\n    <%= select_tag(:genre, options_for_select([['статья', 'статья'], ['новость', 'новость'], ['тема дня', 'тема дня']])) %>\n       <!--f.text_field :genre, placeholder:\"статья\", required: \"true\"   -->\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"* заголовок\" %><br />\n    <%= f.text_field :title, required: \"true\" %>\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"* рубрика\" %><br />\n    <%= select_tag(:rubric, options_for_select([['Политика', 'Политика'], ['Экономика', 'Экономика'], ['Культура', 'Культура'], ['Спорт', 'Спорт'],['История', 'История'],['Личность', 'Личность']])) %>\n    <!-- f.number_field :rubric, required: \"true\" -->\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"* текст статьи\" %><br />\n    <%= f.text_area :content, required: \"true\" %>\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"подзаголовок\" %><br />\n    <%= f.text_area :undertitle %>\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"анонс\" %><br />\n    <%= f.text_field :anonce %>\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"* опубликовать [DD-MM-YYYY HH:MM]\"  %><br />\n    <% t=Time.now %>\n    <%= f.number_field :pub_time,  placeholder: t.strftime(\"%d-%m-%Y %H:%M\"), required: \"true\" %>\n    <!--<%= f.date_select :pub_time, required: \"true\" %> -->\n    <!-- \"сегодня или DD-MM-YYYY\" -->\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"* автор\" %><br />\n    <%= f.text_field :author, required: \"true\" %>\n  </div>\n  <div class=\"field\">\n    <%= f.label :\"издание\" %><br />\n    <%= f.number_field :edition %>\n  </div>\n<!--   <div class=\"field\">\n    <%= f.label :\"имя pdf-файла\" %><br />\n    <%= f.number_field :pdf_file %>\n  </div> -->\n\n <!--  <div class=\"field\">\n    <%= f.label :\"приоритет\" %><br />\n    <%= f.number_field :priority %>\n  </div> -->\n  <div class=\"actions\">\n    <%= f.submit %>\n  </div>\n<% end %>\n",
+			"file": "/home/serg/upnews/app/views/articles/_form.html.erb",
+			"file_size": 2727,
+			"file_write_time": 1364507617000000,
+			"settings":
+			{
+				"buffer_size": 2425,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scaffolds.css.scss",
+			"settings":
+			{
+				"buffer_size": 1027,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "mainpage.css.scss",
+			"settings":
+			{
+				"buffer_size": 1394,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "articles.css.scss",
+			"settings":
+			{
+				"buffer_size": 682,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "application.css.scss",
+			"settings":
+			{
+				"buffer_size": 3239,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/serg/upnews/db/seeds.rb",
+		"/home/serg/upnews/app/views/articles/new.html.erb",
+		"/home/serg/upnews/app/assets/stylesheets/application.css.scss",
+		"/home/serg/upnews/app/views/articles/edit.html.erb",
+		"/home/serg/upnews/app/views/articles/_form.html.erb",
+		"/home/serg/upnews_changes/application.css.scss",
+		"/home/serg/upnews/app/models/article.rb",
+		"/home/serg/upnews_changes/article.rb",
+		"/home/serg/upnews_changes/_form.html.erb",
+		"/home/serg/upnews_changes/upnews_git log.txt",
+		"/home/serg/upnews/db/migrate/20130317025251_delete_type_from_articles.rb",
+		"/home/serg/upnews/db/migrate/20130317012705_add_genre_to_articles.rb",
+		"/home/serg/upnews/app/assets/stylesheets/application.css",
+		"/home/serg/upnews/app/assets/stylesheets/articles.css.scss",
+		"/home/serg/upnews/app/assets/stylesheets/mainpage.css.scss",
+		"/home/serg/upnews/app/assets/stylesheets/scaffolds.css.scss",
+		"/home/serg/Documents/notes_and_logs/terminal_while_crash_16-03-2013(11-03-2013).txt",
+		"/home/serg/upnews/db/schema.rb",
+		"/home/serg/upnews_changes/seeds.rb",
+		"/home/serg/Desktop/for_site.html",
+		"/home/serg/upnews/app/views/mainpage/index.html.erb",
+		"/home/serg/upnews/doc/parts_of_progs.txt",
+		"/home/serg/upnews/app/views/layouts/application.html.erb",
+		"/home/serg/upnews/db/migrate/20130311014326_add_type_to_articles.rb",
+		"/home/serg/upnews/app/views/articles/show.html.erb",
+		"/home/serg/upnews/Gemfile",
+		"/home/serg/upnews/config/routes.rb",
+		"/home/serg/upnews/doc/upnews_Plan and Questions.txt",
+		"/home/serg/upnews/app/views/articles/index.html.erb",
+		"/home/serg/depot/public/stylesheets/application.css",
+		"/home/serg/upnews/app/controllers/mainpage_controller.rb",
+		"/home/serg/upnews/config/environments/development.rb",
+		"/home/serg/upnews/db/migrate/20130220221733_change_colomns_articles.rb",
+		"/home/serg/upnews/db/migrate/20130224233242_add_image_to_articles.rb",
+		"/home/serg/upnews/public/index.html",
+		"/home/serg/upnews/db/migrate/20130216203355_create_articles.rb",
+		"/home/serg/upnews/doc/terminal_2013-02-20_01.txt",
+		"/home/serg/upnews/doc/data_bases_description",
+		"/home/serg/upnews/test/fixtures/articles.yml",
+		"/home/serg/upnews/test/functional/articles_controller_test.rb",
+		"/home/serg/upnews/doc/terminal_2013-02-16_01.txt",
+		"/home/serg/depot/public/stylesheets/depot.css",
+		"/home/serg/depot/app/views/products/index.html.erb",
+		"/home/serg/depot/app/assets/stylesheets/depot.css",
+		"/home/serg/depot/app/assets/depot.css",
+		"/home/serg/depot/app/models/product.rb",
+		"/home/serg/depot/test/functional/products_controller_test.rb",
+		"/home/serg/depot/test/unit/product_test.rb",
+		"/home/serg/depot/test/fixtures/products.yml",
+		"/home/serg/depot/config/routes.rb",
+		"/home/serg/depot/config/environments/development.rb",
+		"/home/serg/depot/app/assets/stylesheets/scaffolds.css.scss",
+		"/home/serg/depot/app/assets/stylesheets/application.css",
+		"/home/serg/depot/Gemfile",
+		"/home/serg/depot/app/controllers/products_controller.rb",
+		"/home/serg/depot/log/.gitkeep",
+		"/home/serg/depot/app/views/layouts/application.html.erb",
+		"/home/serg/depot/app/views/products/_form.html.erb",
+		"/home/serg/depot/db/migrate/20120513140129_create_products.rb",
+		"/home/serg/Documents/GitHub_info.txt",
+		"/home/serg/Documents/RVM-DESCRIPTION",
+		"/home/serg/Documents/rvm gemset create rails3.2"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"article_type",
+			"</th>",
+			"<th>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"genre",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/serg/upnews/app/views/mainpage/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 855,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								555,
+								555
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/serg/upnews/app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 2000,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1593,
+								1593
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/serg/upnews/app/controllers/mainpage_controller.rb",
+					"settings":
+					{
+						"buffer_size": 757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								624,
+								624
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/serg/upnews/app/views/articles/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 1596,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/serg/upnews/app/views/articles/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/home/serg/upnews/app/views/articles/_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 2425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1488,
+								1488
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "scaffolds.css.scss",
+					"settings":
+					{
+						"buffer_size": 1027,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "mainpage.css.scss",
+					"settings":
+					{
+						"buffer_size": 1394,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "articles.css.scss",
+					"settings":
+					{
+						"buffer_size": 682,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application.css.scss",
+					"settings":
+					{
+						"buffer_size": 3239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.312799539009,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true
+}

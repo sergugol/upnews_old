@@ -1,0 +1,115 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*set UP*/ 
+$c1: #000000; /*black*/
+$c2: #808080; /*gray*/
+$c3: #205DB0; /*dark-blue was:2222AA*/ 
+$c4: #BAE0F9; /* sky */
+$c5: #CC2222; /*red*/ 
+$c6: #FFFFFF; /*white*/
+$c7: #EEEEEE; /*light-gray*/
+$c8: #3C5AAF; /*blue-UP was:3355AA*/
+
+.articles {
+	
+	div #left_bar {
+		width: 975px;
+		background-color: $c2 + #666666;
+	    padding: 10px;
+	}
+
+	table {color : #333;
+		border-collapse: collapse;
+	}
+
+	table tr td {
+		padding-left: 0.5em;
+		padding-right: 0.5em;
+		vertical-align: top;
+	}
+
+	.article_image {
+		width: 150px;
+		height: 100px;
+	}
+
+	.articles_head {
+		color: blue;
+	}
+	
+	.list_article {
+			width: 75%;	
+			ul { padding : 0; line-height : 10px;}
+			li { display : inline; padding : 0 5px; border-right : 1px solid #555; }
+			li:first-child { padding-left : 0; }
+			li:last-child { padding-right : 0; border-right-width : 0; }
+			}
+
+		
+
+	.list_actions {
+		font-size: small;
+		text-align: right;
+		padding-left: 1em;
+
+			ul { padding : 0; line-height : 10px;}
+			li { display : inline; padding : 0 5px; border-right : 1px solid #555; }
+			li:first-child { padding-left : 0; }
+			li:last-child { padding-right : 0; border-right-width : 0; }
+			a: { color : #000; }
+			a:visited { color : $c2 + #222 ; font-weight : bold; text-decoration : none; text-transform : uppercase; }
+			a:hover, a:active, a:focus { background-color : #555; color : #FFF; text-decoration : none; }
+			}
+
+	.list_line_even {
+		background: #EEE;
+	}
+
+	.list_line_odd {
+		background: #DDD;
+	}
+
+	.field {
+		label {
+		color: #55F;
+		}
+		display : inline;
+		float: left;
+		padding-left : 5px;
+
+	}
+
+	div #new_article_input {
+		background: #EEE;
+	}
+
+	.actions {
+		float: left; /* good */ 
+		clear: left; /* good */
+		padding-left : 3em;
+	}
+
+	#back_button {
+		float: left; /* good */ 
+		clear: left; /* good */
+		padding-left : 3em;
+	}
+
+	nav.action {
+		background-color: $c5 + #004400; text-align: center; font-weight: bold; 
+		a: 						   { color : #FFF; background-color: #AAC;  text-decoration : none; }
+		a:visited 				   { color : #FFF; font-weight : bold;      text-decoration : none; text-transform : uppercase;}
+		a:hover, a:active, a:focus { color : $c4; background-color : $c2; text-decoration : none; }
+	}
+
+	fieldset {
+		margin-top: 10px;
+	}
+	
+	
+	legend {
+		font-size: 14px;
+	}
+}

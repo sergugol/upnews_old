@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<hgroup>
+  <header class="rubric" >
+    <%= @article.rubric %>
+  </header>
+
+  <header class="title">
+    <%= @article.title %>
+  </header>
+</hgroup>
+
+<p>
+  <%= @article.undertitle %>
+</p>
+<p>
+  <%= @article.pub_time %>
+</p>
+<br>
+<div class="text">
+   <%= @article.content %>
+</div>
+<div class="author">
+  <b>автор: <%= @article.author %></b>
+</div>
+<div class="edition"> 
+  <b>издание: <%= @article.edition %></b>
+</div>
+
+<div>
+  ШШШШШШШШШШШ Другие материалы этой рубрики: ШШШШШШШШШШ
+</div>

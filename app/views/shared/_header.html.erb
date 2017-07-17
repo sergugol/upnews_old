@@ -1,0 +1,100 @@
+<header id="header_block">
+	
+	<div id="date"> 
+		<% t=Time.now.getlocal 
+		weekday = ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"] 
+		monthname = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]	%>
+		<p><%= weekday[t.wday] %> </p>
+		<p><%= t.strftime("%d" + " " + monthname[t.month - 1]) %> </p>
+		<p><%= t.strftime("%Y" + " г.") %> </p>
+	</div> 
+
+	<div id="time"> 
+			<p id="clock2">  </p>
+	</div> 
+
+	<div id="action_menu_bar1"> 
+		<ul>
+			<li><a href="#"> <%= link_to 'Контакты',  action: "contacts" %></a></li>
+			<li><a href="#"> <%= link_to 'О газете',  action: "upnewsinfo" %></a></li>
+			<li><a href="#"> <%= link_to 'О рекламе', action: "reclaminfo" %></a></li>
+			<!-- controller: "application",-->
+			<!--<li><a href="#">О газете</a></li>
+				<li><a href="#">О рекламе</a></li>-->
+		</ul>
+	</div>
+
+	<a id="tellnews" href="mailto: up@up.mk.ua"><u>Сообщить новость</u> </a>	
+
+	<hgroup>
+		<div id="logo"> 
+			<%# image_tag("logo_up_head.png") %>
+			<!-- UP_logo_big_gray_566x81.png  -->
+			<%= link_to(image_tag("ngpgmoUP_logo_big_gray_566x100.png", :alt => "logo"), mainpage_path) %>
+			<!-- logo_up_head.png -->
+			<%# link_to 'ГЛАВНАЯ', mainpage_path %> 
+		</div>
+		<!-- div id="name">
+			<p>Независимая общественно-политическая газета Николаевской области</p>
+		</div -->
+	</hgroup>
+
+<!-- 	<div id="search_bar"> 
+				<form novalidate>
+					<label> Поиск:</label>
+					<input type="search" id="search" name="search" />
+					<input type="submit" value="найти!" />
+				</form>
+			</div> -->			
+	<div id="search_bar"> 	
+		<%= form_tag search_path, :method => :get do %>
+	  		<p>
+	    	<%= text_field_tag :search, params[:search] %>
+	    	<%= submit_tag "Поиск", :name => nil %>
+		<% end %>
+	</div>
+
+	<div id="topic_band"><p> </p> </div>
+	<nav id="topic_menu_bar"> 
+		<ul>
+			<li><%= link_to 'ГЛАВНАЯ', mainpage_path %></li>
+							<!-- було "mainpage/index" і працювало з *other/mainpage/index  -->
+							<!-- root_path   не працює, тому що root перевизначен як mainpage -->
+			
+			<li><%= link_to 'Новости-Мир', 
+							controller: "mainpage",
+							action: "worldnews_index" %></li>
+				<!--   <a href="#">Новости-Мир</a>    "mainpage/worldnews_index" -->
+			
+			<li><%= link_to 'Новости-Украина', 
+							controller: "mainpage",
+							action: "ukrainenews_index" %></li>
+
+			<li><%= link_to 'Новости-Николаев и обл.', 
+							controller: "mainpage",
+							action: "nikolaevnews_index" %></li>
+
+			<li><%= link_to 'Статьи', 
+							controller: "mainpage",
+							action: "allarticles_index" %></li>							
+			<!-- <li><a href="#">Телепрограмма</a></li>
+			<li><a href="#">Архив</a></li> -->
+		</ul>
+	</nav>
+
+	<div id="action_menu_bar2">
+		<ul>
+		<% if editor_signed_in? %>
+			  	<!-- <li><a href="#"><%= link_to 'Админ', controller: "admin" %></a></li> -->  
+				<li><a href="#"><%= link_to 'Статьи', controller: "articles" %></a></li>
+				<li><a href="#"><%= link_to 'PDF', controller: "pdfpages" %></a></li>
+				<li><a href="#"><%= link_to 'Инфограф.', controller: "infografics" %></a></li>
+				<li><a href="#"><%= link_to 'Реклама', controller: "reclams" %></a></li>
+				<li><%= link_to('Выход', destroy_editor_session_path, :method => :delete) %>  <%# Logout %> </li>
+		<% else %>
+				<li><%= link_to('Админ', new_editor_session_path)  %> <%# Login %> </li>
+		<% end %> 
+		</ul>
+	</div>
+
+</header> <!-- end .header -->

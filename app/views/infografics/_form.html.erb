@@ -1,0 +1,53 @@
+  <%= form_for(@infografic) do |f| %>
+  <% if @infografic.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@infografic.errors.count, "error") %> prohibited this infografic from being saved:</h2>
+
+    <ul>
+      <% @infografic.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+<h4>Редактирование ИНФОГРАФИКИ . . . .Редактор: <%# current_editor.email  %> </h4>
+  <fieldset>   
+    <div id="new_article_input"> <!-- start.input block-->
+   <div style="float:left;">
+      <div class="field">
+        <%= f.label "*Рубрика" %><br />
+        <%# f.text_field :rubric, required: "true" %>
+        <%= select(:infografic, :rubric, options_for_select([['День в истории', 'День в истории'], ['Прочие', 'Прочие']], @infografic.rubric || 'День в истории')) %>
+      </div>
+      
+      <br />
+      <div class="field">
+        <%= f.label "Комментарий" %><br />
+        <%= f.text_field :comment %>
+      </div>
+      
+      <br />
+      <div class="field">
+        <%= f.label "Дата (ОБЯЗАТЕЛЬНО для рубрики `День в истории`, год - любой)" %><br />
+        <%= f.date_select :history_date %>
+      </div>
+</div> 
+<div style="float:right;">
+      <div class="field" id="inp_image">
+        <%= f.label "*графический файл" %><br />
+        <%= f.file_field :image %>
+        <% if @infografic.image? %>
+        <%# image_tag(@infografic.image.url, size: "180x360", :border=>0) %>
+        <br />
+        <a href="<%= @infografic.image.url %>"> <%= image_tag(@infografic.image.url, size: "180x360", :border=>0) %> </a>
+        <%= @infografic.image_file_name  %>
+        <% end %>
+      </div>
+    </div> <!-- end. new_article_input-->
+</div>    
+    <div class="actions" style="clear:both; float:right;">
+      <%= f.submit "Сохранить" %>
+    </div>
+    
+  </fieldset>
+  <% end %>
