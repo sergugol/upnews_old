@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class ArticlesController < ApplicationController
   
-  before_filter :authenticate_admin!, :exept => [:index, :show]
+  # before_filter :authenticate
 
   # GET /articles
   # GET /articles.json
@@ -101,10 +101,10 @@ end
     end
   end
 
-#  def authenticate
-#    authenticate_or_request_with_http_basic do |username, password|
-#      username == "admins" && password == "seenmnb"
-#    end
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "admins" && password == "seenmnb"
+    end
   end
 end
 
