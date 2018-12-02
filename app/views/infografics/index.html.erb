@@ -1,47 +1,42 @@
 <div class = "editor">
-
-<%# if editor_signed_in? %>
-    <h4>Перечень ИНФОГРАФИКИ . . . . Редактор: <%#= current_editor.email %> </h4>
-    <nav class="action">
-        <%= link_to 'ДОБАВИТЬ БЛОК ИНФОГРАФИКИ', new_infografic_path %>
-    </nav>
-<br />
-<table>
-  <tr>
-    <th>Рубрика</th>
-    <th>Комментарий</th>
-    <th>"Дата в истории"</th>
-    <th>Файл</th>
-    <th>Тип файла</th>
-    <th>Размер</th>
-    <th>Дата обновления</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @infografics.each do |infografic| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td><%= infografic.rubric %></td>
-    <td><%= infografic.comment %></td>
-    <td><%= infografic.history_date %></td>
-    <td><%= infografic.image_file_name %></td>
-    <td><%= infografic.image_content_type %></td>
-    <td><%= infografic.image_file_size %></td>
-    <td><%= infografic.updated_at.getlocal.strftime("%Y-%m-%d ") %></td >
-    <td><%= link_to 'Показать', infografic %></td>
-    <td><%= link_to 'Изменить', edit_infografic_path(infografic) %></td>
-    <td><%= link_to 'Удалить', infografic, confirm: 'Уверены?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-
-
-<%# else %>
-    <h3> Для просмотра и редактирования блоков инфографики необходимо выполнить вход в админ. область.  </h3>
-<%# end %> 
-
+<% if editor_signed_in? %>
+  <h4>Перечень ИНФОГРАФИКИ <%#= current_editor.email %> </h4>
+  <nav class="action">
+    <%= link_to 'ДОБАВИТЬ БЛОК ИНФОГРАФИКИ', new_infografic_path %>
+  </nav>
+      <br />
+      <table>
+        <tr>
+          <th>Рубрика</th>
+          <th>Комментарий</th>
+          <th>"Дата в истории"</th>
+          <th>Файл</th>
+          <th>Тип файла</th>
+          <th>Размер</th>
+          <th>Дата обновления</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      
+      <% @infografics.each do |infografic| %>
+        <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+          <td><%= infografic.rubric %></td>
+          <td><%= infografic.comment %></td>
+          <td><%= infografic.history_date %></td>
+          <td><%= infografic.image_file_name %></td>
+          <td><%= infografic.image_content_type %></td>
+          <td><%= infografic.image_file_size %></td>
+          <td><%= infografic.updated_at.getlocal.strftime("%Y-%m-%d ") %></td >
+          <td><%= link_to 'Показать', infografic %></td>
+          <td><%= link_to 'Изменить', edit_infografic_path(infografic) %></td>
+          <td><%= link_to 'Удалить', infografic, confirm: 'Уверены?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+        
+    <br />
+<% else %>
+    <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+<% end %> 
 </div> <!-- infografic_editor -->

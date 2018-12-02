@@ -1,6 +1,9 @@
 <div class = "editor">
-<%= render 'form' %>
-
-<%= link_to 'Показать', @infografic %> |
-<%= link_to 'Список', infografics_path %>
+<% if editor_signed_in? %>
+	<%= render 'form' %>
+	<%= link_to 'Показать', @infografic %> |
+	<%= link_to 'Список', infografics_path %>
+<% else %>
+        <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+<% end %>	
 </div>

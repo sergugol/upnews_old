@@ -9,6 +9,8 @@ UP_logo_big_gray_566x81.png: UP_logo_big_gray_566x81.png
 UP_logo_big_gray_566x81/index.png: UP_logo_big_gray_566x81.png
 UPprice2013color.png: UPprice2013color.png
 UPprice2013color/index.png: UPprice2013color.png
+down_arrow.png: down_arrow.png
+down_arrow/index.png: down_arrow.png
 favicon.ico: favicon.ico
 favicon/index.ico: favicon.ico
 glyphicons_011_camera.png: glyphicons_011_camera.png
@@ -21,6 +23,8 @@ ngpgmoUP_logo_big_gray_566x100.png: ngpgmoUP_logo_big_gray_566x100.png
 ngpgmoUP_logo_big_gray_566x100/index.png: ngpgmoUP_logo_big_gray_566x100.png
 rails.png: rails.png
 rails/index.png: rails.png
+up_arrow.png: up_arrow.png
+up_arrow/index.png: up_arrow.png
 application.js: application.js
 application/index.js: application.js
 BiblonCY.otf: BiblonCY.otf

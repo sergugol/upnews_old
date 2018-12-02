@@ -1,10 +1,13 @@
 # -*- encoding : utf-8 -*-
 
 class MainpageController < ApplicationController
+  
   def index
     @find_result = ["dt" => true, "ra" => true, "id" => true, "im" => true, 
-      "pet" => true, "aut" => true, "ect" => true, "cot" => true, "cut" => true, "pet" => true, 
-      "pea" => true, "aua" => true, "eca" => true, "coa" => true, "cua" => true, "pea" => true]
+      "aut" => true, "ect" => true, "cot" => true, "cut" => true, "pet" => true, 
+      "aua" => true, "eca" => true, "coa" => true, "cua" => true, "pea" => true]
+      # deleted doubled: "pea" => true,    and  "pet" => true,
+      
 # --- Тема дня ---
   	@daytheme_articles = Article.find_all_by_genre("тема дня").sort!{ |a,b| b.created_at <=> a.created_at }.take(4)
     #@daytheme_articles = Article.find_by_sql("(genre='тема дня') AND (ORDER by created_at desc)").first(4)      
@@ -54,7 +57,7 @@ class MainpageController < ApplicationController
   	@news_world_articles = Article.find_all_by_rubric_and_genre("Мир","новость").last(5).sort!{ |a,b| b.created_at <=> a.created_at }
     @news_ukraine_articles = Article.find_all_by_rubric_and_genre("Украина","новость").last(5).sort!{ |a,b| b.created_at <=> a.created_at }
     @news_nikolaev_articles = Article.find_all_by_rubric_and_genre("Николаевщина","новость").last(10).sort!{ |a,b| b.created_at <=> a.created_at }
-  end
+end
 
   def worldnews_index
       @worldnews_articles = Article.find_all_by_rubric_and_genre("Мир","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)

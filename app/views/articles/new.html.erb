@@ -1,7 +1,10 @@
 <div class= "editor">
-	<%= render 'form' %>
-
-	<div id="back_button">
-		<%= link_to 'Список', articles_path %>
-	</div>
+	<% if editor_signed_in? %>
+		<%= render 'form' %>
+		<div id="back_button">
+			<%= link_to 'Список', articles_path %>
+		</div>
+	<% else %>
+        <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+	<% end %>
 </div>

@@ -1,10 +1,12 @@
 <div class = "editor">
-	
-
+  <% if editor_signed_in? %>
 	<%= render 'form' %>
 
 	<div style="clear:both;">
 		<%= link_to 'Показать ', @pdfpage %> |
 		<%= link_to 'Список', pdfpages_path %>
 	</div>
+  <% else %>
+       <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+  <% end %>	
 </div>

@@ -1,9 +1,13 @@
 <div class = "editor">
-<h4>Редактирование СТАТЬИ (НОВОСТИ)</h4>
-<%= render 'form' %>
+<% if editor_signed_in? %>
+	<h4>Редактирование СТАТЬИ (НОВОСТИ)</h4>
+	<%= render 'form' %>
 
-<div style="clear:both;">
-	<%= link_to 'Показать', @article %> |
-	<%= link_to 'Список', articles_path %>
-</div>
+	<div style="clear:both;">
+		<%= link_to 'Показать', @article %> |
+		<%= link_to 'Список', articles_path %>
+	</div>
+<% else %>
+        <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+<% end %>	
 </div>

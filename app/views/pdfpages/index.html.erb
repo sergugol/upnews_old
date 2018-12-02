@@ -1,13 +1,13 @@
 <div class = "editor">
 
-<%# if editor_signed_in? %>
-    <h4>Перечень PDF-ФАЙЛОВ . . . . Редактор: <%= current_editor.email %> </h4>
+<% if editor_signed_in? %>
+    <h4>Перечень PDF-ФАЙЛОВ </h4> <!--Редактор: --> <%#= current_editor.email %> 
     <nav class="action">
         <%= link_to 'ДОБАВИТЬ PDF-файл', new_pdfpage_path %>
     </nav>
 
     <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
-    <table>
+    <table style = "margin-left:auto; margin-right:auto;">
         <tr style = "padding:2px;">
             <th>Издание</th>
             <th>Дата выпуска</th>
@@ -46,7 +46,7 @@
     <br />
 
     <div class = "digg_pagination"><%= will_paginate @pdfpages %></div>
-<%# else %>
-    <h3> Для просмотра и редактирования PDF-файлов необходимо выполнить "Вход".  </h3>
-<%# end %>
+<% else %>
+        <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+<% end %> 
 </div> <!-- PDF_editor -->

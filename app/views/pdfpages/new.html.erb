@@ -1,7 +1,9 @@
 <div class = "editor">
-	<h1>Добавление PDF-полосы</h1>
-
+  <% if editor_signed_in? %>
+    <h1>Добавление PDF-полосы</h1>
 	<%= render 'form' %>
-
 	<%= link_to 'Список', pdfpages_path %>
+  <% else %>
+        <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+  <% end %>	
 </div>

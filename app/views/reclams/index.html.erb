@@ -1,7 +1,7 @@
 <div class = "editor">
         
-<%# if editor_signed_in? %>
-    <h4>Перечень РЕКЛАМНЫХ БЛОКОВ . . . . Редактор: <%# current_editor.email %> </h4>
+<% if editor_signed_in? %>
+    <h4>Перечень РЕКЛАМНЫХ БЛОКОВ <%# current_editor.email %> </h4>
     <nav class="action">
             <%= link_to ' ДОБАВИТЬ РЕКЛАМНЫЙ БЛОК ', new_reclam_path %>
     </nav>
@@ -51,7 +51,7 @@
     <br />
     <div class = "digg_pagination"><%= will_paginate @reclams %></div>
 
-<%# else %>
-    <h3> Для просмотра и редактирования рекламных блоков необходимо выполнить вход в админ. область.  </h3>
-<%# end %> 
+<% else %>
+    <h3 style = "text-align: center; color: #FF0000;"> Перейдите в режим "Админ".  </h3 >
+<% end %> 
 </div> <!-- reclam_editor -->
