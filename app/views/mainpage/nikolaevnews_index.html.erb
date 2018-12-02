@@ -20,17 +20,23 @@
 				<% ndate = article.created_at.getlocal %>
 				<%= ndate.strftime("%d/%m/%Y  %H:%M") %>
 			</div>
-			<div class="zag"> 
-				<%= link_to article.title, 
+			<div class="zag" style="font-weight: bold;"> 
+			<h3><%= link_to article.title, 
 		    		controller: "mainpage",
 		    		action: "show_item",
-		    		id: article.id %></div>
-		    	<% if article.image? %>
-    				<%= image_tag(article.image.url, size: "75x50") %>
-    			<% end %>	
-		    <p class="anonce"> 
-				<%= sanitize(truncate(strip_tags(article.anonce), length: 200)) %> 
-			</p>
+		    		id: article.id %></h3></div>
+		     
+	    	<% if article.image? %>
+	    		<div class = "left_image">
+					<%= image_tag(article.image.url, size: "300x200") %>
+				</div>		
+			<% end %>
+			<div class="content"> 
+				<%# sanitize(@article.content) %> 
+				<%= simple_format(article.content) %> 
+			</div>
+			<h5><%= article.author + " _ " + article.edition %></h5> 
+
 		</section>
 	<% end %>
 

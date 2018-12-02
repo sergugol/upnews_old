@@ -93,7 +93,6 @@ $c7: #EEEEEE; /*light-gray*/
 			
 			#phones_table {
 				table {
-					margin-left: 30px;
 					color : #333;
 					border-collapse: collapse;
 				}
@@ -148,7 +147,7 @@ $c7: #EEEEEE; /*light-gray*/
 					-column-count: 1;
 					white-space: normal;
 					color: #222;
-					font-size: 95%;
+					font-size: 100%;
 					font-family: serif;
 					line-height: 120%;
 					margin-top: 0px 30px 0px 0px;
@@ -338,7 +337,7 @@ $c7: #EEEEEE; /*light-gray*/
 				float: left;
 				
 				div.zag {
-					a:link { font-size: 14px; color: $c3d; text-decoration: none;} 
+					a:link { font-size: 14px; font-weight: bold; color: $c3d; text-decoration: none;} 
 					a:visited { color: $c3d + #222222; text-decoration: none; text-transform: uppercase; } /* #55C */
 					a:hover, a:active, a:focus { background-color: $c1; color: #FFF; text-decoration: none; }
 				}
@@ -508,5 +507,10 @@ $c7: #EEEEEE; /*light-gray*/
 		overflow: auto;
 		float: left;
 		border-bottom: 1px dotted $c2;
+
+		div.left_image {
+		  float: left;
+		  margin: 0px 12px 12px 0;
+		}
 	}
 } /*main_page */

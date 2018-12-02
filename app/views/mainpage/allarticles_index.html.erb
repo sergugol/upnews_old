@@ -4,43 +4,43 @@
 
 <!-- ================== NEWS_BAR =========================== -->
 <% content_for :items_bar do %>
-<header> 
-	<div class = "rubric_header_index" > 
-		Все статьи 
-	</div>
-</header>
-
-<!-- 	<%= form_tag search_path, :method => :get do %>
-  		<p>
-    	<%= text_field_tag :search, params[:search] %>
-    	<%= submit_tag "найти!", :name => nil %>
-    	<% end %> -->
-
-<div class = "digg_pagination">
-	<%= will_paginate @allarticles %>
-</div>
-
-	<% @allarticles.each do |article| %>
-	<section class="article_list">
-		<div class = "ntime" style = "display: inline; color:#555;">
-			<% ndate = article.updated_at %>
-			<%= ndate.strftime("%d/%m/%Y  %H:%M") + " ___ " %>
-			<%= article.author + " ___ " + article.edition %>
-		</div>			
-		<div class="zag"> 
-			<%= link_to article.title, 
-			controller: "mainpage",
-			action: "show_item",
-			id: article.id %>
+	<header> 
+		<div class = "rubric_header_index" > 
+			Все статьи 
 		</div>
-		<p class="anonce"> 
-			<%= sanitize(truncate(strip_tags(article.anonce), length: 200)) %> 
-		</p>
-	</section>
-	<% end %>
-
-<br />
-<div class = "digg_pagination">
-	<%= will_paginate @allarticles %>
-</div>	
+	</header>
+	
+	<!-- 	<%= form_tag search_path, :method => :get do %>
+	  		<p>
+	    	<%= text_field_tag :search, params[:search] %>
+	    	<%= submit_tag "найти!", :name => nil %>
+	    	<% end %> -->
+	
+	<div class = "digg_pagination">
+		<%= will_paginate @allarticles %>
+	</div>
+	
+		<% @allarticles.each do |article| %>
+		<section class="article_list">
+			<div class = "ntime" style = "display: inline; color:#555;">
+				<% ndate = article.updated_at %>
+				<%= ndate.strftime("%d/%m/%Y  %H:%M") + " ___ " %>
+				<%= article.author + " ___ " + article.edition %>
+			</div>			
+			<div class="zag" style="font-weight: bold;"> 
+				<%= link_to article.title, 
+				controller: "mainpage",
+				action: "show_item",
+				id: article.id %>
+			</div>
+			<p class="anonce"> 
+				<%= sanitize(truncate(strip_tags(article.anonce), length: 200)) %> 
+			</p>
+		</section>
+		<% end %>
+	
+	<br />
+	<div class = "digg_pagination">
+		<%= will_paginate @allarticles %>
+	</div>	
 <% end %>	
