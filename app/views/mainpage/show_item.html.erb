@@ -5,7 +5,7 @@
 <!-- ================== ITEMS_BAR =========================== -->
 
 <% content_for :items_bar do %>
-	<section class="article_list">  <!-- was article_entry --> 
+	<section class="article_entry">   
 		<!--div class="article_info"-->
 	    	<div class = "ntime" style = "display: inline">
 				<% ndate = @article.created_at.getlocal %>
@@ -13,15 +13,18 @@
 			</div>
 	    	<h2> <%= @article.title %></h2>
 	    	<% if @article.image? %>
-	    	<div class = "left_image">
-				<%= image_tag(@article.image.url, size: "300x200") %>
+	    	<div class = "left_image" style = "margin-right:20px;">
+				<%= image_tag(@article.image.url, size: "300x200", float: "left") %>
 			</div>		
 			<% end %>
-			<div class="content"> 
-				<%# sanitize(@article.content) %> 
-				<%= simple_format(@article.content) %> 
-				</div>
-		<h5><%= @article.author + " _ " + @article.edition %></h5> 	
+			<%# sanitize(@article.content) %> 
+			<%= simple_format(@article.content, class: 'content') %> 
+			<% if @article.author? %>
+				<h5 style = "text-align: right; margin: 0;"><%= @article.author %></h5>
+			<% end %>
+			<% if @article.edition? %>
+				<h5 style = "text-align: right; margin: 0 0 10 0;"><%= @article.edition %></h5> 	
+			<% end %>
 		<!--/div --> <!-- article_info -->
 	</section> 
 <% end %>	

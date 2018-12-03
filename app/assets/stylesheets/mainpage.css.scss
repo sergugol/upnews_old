@@ -443,14 +443,13 @@ $c7: #EEEEEE; /*light-gray*/
 
 	section.article_entry {
 		position: relative;
-		width: 600px;
+		width: 928px;
 		height: auto;
 		min-height: 600px;
 		margin: 0px 32px 0px 32px;
 		overflow: auto;
 		float: left;
-		border-bottom: 1px dotted $c2;
-		
+				
 	
 		/*div.article_info{
 			padding: 0px 32px 0px 32px;
@@ -461,7 +460,7 @@ $c7: #EEEEEE; /*light-gray*/
 		div.left_image {
 		  float: left;
 		  margin: 0px 12px 12px 0;
-		}
+		  }
 		
 		div.right_image {
 		  float: right;
@@ -486,13 +485,13 @@ $c7: #EEEEEE; /*light-gray*/
 			}
 	  	}/*content*/
 
-	  	p {	font-size: 13px;
+		p.content {	font-size: 16px;
 			font-family: sans-serif;
-			line-height: 120%;
-		/*text-indent: 2em;*/
+			line-height: 140%;
+			text-indent: 1em;
 		}
-
-		h4 {
+	  	
+	  	h4 {
 			font-size: 90%;
 			margin-bottom: 2px;
 		}/*h4*/
