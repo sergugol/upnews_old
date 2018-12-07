@@ -4,25 +4,28 @@
 
 <!-- ================== NEWS_BAR =========================== -->
 <% content_for :items_bar do %>
-	<div class = "rubric_header_index" ><header> новости: Мир </header>
+	<div class = "rubric_header_index" style = "text-align: center;">
+		<header> 
+			новости.МИР 
+		</header>
 	</div>
-
 	<div class = "digg_pagination"><%= will_paginate @worldnews_articles %>
 	</div>
 	
 	<% @worldnews_articles.each do |article| %>
 		<section class="article_list"> 
 		   	<div class = "ntime" style = "display: inline">
-				<% ndate = article.created_at.getlocal %>
-				<%= ndate.strftime("%d/%m/%Y  %H:%M") %>
+				<% ndate = article.updated_at.getlocal %>
+				<p style = "display: inline; color:#933; font-weight: bold;"><%= ndate.strftime("%d-%b-%Y ..... %H:%M") + " ....." %></p>
+				<p style = "display: inline; font-weight: bold;"><%= article.author + ". " + article.edition + " ..... " %></p>
 			</div>
 			<div class="zag" style="font-weight: bold;"> 
-			<h3><%= link_to article.title, 
+				<%= link_to article.title, 
 		    		controller: "mainpage",
 		    		action: "show_item",
-		    		id: article.id %></div></h3>
-		    
-   	    	<% if article.image? %>
+		    		id: article.id %>
+		    </div>
+		    <% if article.image? %>
 	    		<div class = "left_image">
 					<%= image_tag(article.image.url, size: "300x200") %>
 				</div>		
@@ -31,7 +34,7 @@
 				<%# sanitize(@article.content) %> 
 				<%= simple_format(article.content) %> 
 			</div>
-			<h5><%= article.author + " _ " + article.edition %></h5> 
+			<!-- h5><%= article.author + " _ " + article.edition %></h5 --> 
 		</section>
 	<% end %>	
 	<br />

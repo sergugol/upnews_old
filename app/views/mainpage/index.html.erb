@@ -1,7 +1,8 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<!-- <div class = "rubric_header_light" ><%= @daytheme_articles[0].genre %></div> -->
+<!-- <div class = "rubric_header_light" --> <%# = @daytheme_articles[0].genre %> 
+  <!-- /div  -->
 <!-- ================== TOP_BAR =========================== -->
 <!-- div id="main_right" -->
 	<% content_for :top_bar do %> 
@@ -37,7 +38,7 @@
 				</div>
 				<% end %>
 			</div>
-		</div> <!-- slidorion------------------------------------- -->
+		</div> <!-- slidorion ========================== -->
 	<% end %>
 	</div>
 
@@ -94,7 +95,13 @@
 		<% rubric_item.each do |r_item| %> 
 		<div class = "rubric_box">
 			<div class = "rubric_header" >
-				<div class = "quadro"><p></p></div><div class = "rubric_name"> <%= r_item[0].rubric %></div>
+				<div class = "quadro">
+					<p></p>
+				</div>
+				<div class = "rubric_name"> <%#= r_item[0].rubric %>
+					<%# rubrica = 'Статьи' + r_item[0].rubric %>
+					<%= link_to r_item[0].rubric.mb_chars.upcase.to_s, controller: "mainpage", action: "rubric_index", rubric_name: r_item[0].rubric %>
+				</div>
 			</div>
 			
 			<div class="foto_box">  <!-- ============== FOTO_BOX ============== -->
@@ -315,7 +322,8 @@
     <!-- Jssor Slider End -->
 <!-- ============ END bottom part of jssor-slider script ===== -->
 	</div>
-	</section>
+	</section> <!-- reclam box -->
+	
 <!-- ================= weather informer ================= -->
 	<section> 
 		<div id="MeteoInformerWrap">

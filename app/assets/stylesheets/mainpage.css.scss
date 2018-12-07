@@ -17,7 +17,7 @@ $c7: #EEEEEE; /*light-gray*/
 		padding: 0px;
 		display: inline;
 		width: auto;
-		font-size: 60%;
+		font-size: 70%;
 }
 /**/
 .mainpage {
@@ -297,6 +297,7 @@ $c7: #EEEEEE; /*light-gray*/
 				}
 				.rubric_name {
 					float: left;
+					a:link {text-decoration: none;}
 				}
 			}/*rubric_header*/
 
@@ -324,6 +325,10 @@ $c7: #EEEEEE; /*light-gray*/
 				color: $c1;
 				font-weight: bold;
 				line-height: 90%;
+					/*added 2018-12-06*/
+					a:link { font-size: 14px; font-weight: bold; color: $c3d; text-decoration: none;} 
+					a:visited { color: $c3d + #222222; text-decoration: none; text-transform: uppercase; } /* #55C */
+					a:hover, a:active, a:focus { background-color: $c1; color: #FFF; text-decoration: none; }
 			}/*zag*/
 
 			div.foto_box {
@@ -430,17 +435,6 @@ $c7: #EEEEEE; /*light-gray*/
 		} /*rubric_box */	
 	} /*articles_bar*/	
 
-	/*.article_info {
-			float: left;
-			position: relative;
-			border-bottom: 1px dotted $c2;
-			height: auto;
-			margin: 5px 32px 0px 32px;
-			width: 928px;
-			overflow:hidden; 
-			word-wrap:break-word;
-	}*/
-
 	section.article_entry {
 		position: relative;
 		width: 928px;
@@ -450,13 +444,6 @@ $c7: #EEEEEE; /*light-gray*/
 		overflow: auto;
 		float: left;
 				
-	
-		/*div.article_info{
-			padding: 0px 32px 0px 32px;
-			float: left;
-			height: auto;
-			width: 928px;*/
-			  /* auto */
 		div.left_image {
 		  float: left;
 		  margin: 0px 12px 12px 0;
@@ -485,7 +472,7 @@ $c7: #EEEEEE; /*light-gray*/
 			}
 	  	}/*content*/
 
-		p.content {	font-size: 16px;
+		div.content  p {	font-size: 16px;
 			font-family: sans-serif;
 			line-height: 140%;
 			text-indent: 1em;
@@ -511,5 +498,22 @@ $c7: #EEEEEE; /*light-gray*/
 		  float: left;
 		  margin: 0px 12px 12px 0;
 		}
+
+		div.zag {
+			/*added 2018-12-06*/
+			a:link { font-size: 24px; font-weight: bold; color: $c3d; text-decoration: none;} 
+			a:visited { color: $c3d + #222222; text-decoration: none; text-transform: uppercase; } /* #55C */
+			a:hover, a:active, a:focus { background-color: $c1; color: #FFF; text-decoration: none; }
+		}
+		p.anonce {
+					float: left;
+					color: #222;
+					font-size: 14px;
+					font-family: sans-serif;
+					line-height: 110%;
+					margin-top: 2px;
+					margin-bottom: 10px;
+			  	    padding: 0px;
+			  	}
 	}
 } /*main_page */

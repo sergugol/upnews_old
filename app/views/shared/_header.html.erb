@@ -2,9 +2,9 @@
 	<div id="date"> 
 		<% t=Time.now.getlocal 
 		weekday = ["воскресенье","понедельник","вторник","среда","четверг","пятница","суббота"] 
-		monthname = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]	%>
+		@monthname = ["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"]	%>
 		<p><%= weekday[t.wday] %> </p>
-		<p><%= t.strftime("%d" + " " + monthname[t.month - 1]) %> </p>
+		<p><%= t.strftime("%d" + " " + @monthname[t.month - 1]) %> </p>
 		<p><%= t.strftime("%Y" + " г.") %> </p>
 	</div> 
 
@@ -44,19 +44,19 @@
 							<!-- було "mainpage/index" і працювало з *other/mainpage/index  -->
 							<!-- root_path   не працює, тому що root перевизначен як mainpage -->
 			
-			<li><%= link_to 'Новости-Мир', 
+			<li><%= link_to 'новости.МИР', 
 							controller: "mainpage",
 							action: "worldnews_index" %></li>
 			
-			<li><%= link_to 'Новости-Украина', 
+			<li><%= link_to 'новости.УКРАИНА', 
 							controller: "mainpage",
 							action: "ukrainenews_index" %></li>
 
-			<li><%= link_to 'Новости-Николаев и обл.', 
+			<li><%= link_to 'новости.НИКОЛАЕВ и обл.', 
 							controller: "mainpage",
 							action: "nikolaevnews_index" %></li>
 
-			<li><%= link_to 'Статьи', 
+			<li><%= link_to 'СТАТЬИ', 
 							controller: "mainpage",
 							action: "allarticles_index" %></li>							
 		</ul>

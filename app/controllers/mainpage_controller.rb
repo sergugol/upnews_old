@@ -75,13 +75,21 @@ def nikolaevnews_index
   end   
 
   def allarticles_index
-      @allarticles = Article.find_all_by_genre("статья").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)    
+      # @allarticles = Article.find_all_by_genre("статья", "топ").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)    
+      @allarticles = Article.find_by_sql('SELECT * FROM articles WHERE genre IN ("статья", "топ");').last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)
     render layout: "items"
   end   
+
+  def rubric_index
+      @rubric_articles = Article.find_all_by_rubric(params[:rubric_name]).last(50).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:10)
+      @rubric_name = params[:rubric_name]    
+    render layout: "rubric_items"
+  end
 
   def show_item
       @article = Article.find(params[:id])
     render layout: "items"
   end
+
 
 end

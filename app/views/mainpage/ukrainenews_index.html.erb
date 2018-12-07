@@ -1,23 +1,26 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-
 <!-- ================== NEWS_BAR =========================== -->
 <% content_for :items_bar do %>
-	<div class = "rubric_header_index" ><header> новости: Украина </header></div>
+	<div class = "rubric_header_index" style = "text-align: center;">
+		<header> 
+			новости.УКРАИНА 
+		</header>
+	</div>
 	<div class = "digg_pagination"><%= will_paginate @ukrainenews_articles %></div>
-
 	<% @ukrainenews_articles.each do |article| %>
 		<section class="article_list">
 			<div class = "ntime" style = "display: inline">
-				<% ndate = article.created_at.getlocal %>
-				<%= ndate.strftime("%d/%m/%Y  %H:%M") %>
+				<% ndate = article.updated_at.getlocal %>
+				<p style = "display: inline; color:#933; font-weight: bold;"><%= ndate.strftime("%d-%b-%Y ..... %H:%M") + " ....." %></p>
+				<p style = "display: inline; font-weight: bold;"><%= article.author + ". " + article.edition + " ..... " %></p>
 			</div>
 		   	<div class="zag" style="font-weight: bold;"> 
-		   	<h3>	<%= link_to article.title, 
+		   		<%= link_to article.title, 
 		   			controller: "mainpage",
 		   			action: "show_item",
-		   			id: article.id %> </h3>
+		   			id: article.id %>
 		   	</div>
    	    	<% if article.image? %>
 	    		<div class = "left_image">
@@ -25,12 +28,9 @@
 				</div>		
 			<% end %>
 			<div class="content"> 
-				<%# sanitize(@article.content) %> 
 				<%= simple_format(article.content) %> 
 			</div>
-			<h5><%= article.author + " _ " + article.edition %></h5> 		    	
-
-			</section>
+		</section>
 	<% end %>
 	<div class = "digg_pagination" style="vertical-align:bottom; ">
 		<%= will_paginate @ukrainenews_articles %>
