@@ -2,6 +2,13 @@
 <html>
 <head>
   <title>Газета "ЮЖНАЯ ПРАВДА"</title>
+
+  <!-- meta property="og:url"           content="<%= original_url %>" />
+  <meta property="og:type"          content="Article.genre>
+  <meta property="og:title"         content="Article.name" />
+  <meta property="og:description"   content="Article.anonce" />
+  <meta property="og:image"         content="Article.image" / -->
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -16,8 +23,7 @@
 
   gtag('config', 'UA-55507312-1');
 </script>
-
-
+<!-- Global site tag END ==================================================  -->
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="logo" href="images/favicon.ico" type="image/x-icon">
 </head>

@@ -7,6 +7,10 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}
   end
 
+  def original_url
+	request.base_url + request.original_fullpath
+  end
+
 end
 
 
