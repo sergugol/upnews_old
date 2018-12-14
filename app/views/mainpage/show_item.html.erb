@@ -37,10 +37,37 @@
 			  }(document, 'script', 'facebook-jssdk'));
 			</script>
 			<!-- ======================================================= -->
-			<div class="fb-like" data-href="<%= original_url %>" data-width="40" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"> 
+			<div class="fb-like" data-href="<%= original_url %>" data-width="600" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" style = "margin-bottom:20px;">
 			</div>
+			<!-- ========================= FB-like-button end ======= -->
+			<!-- =========================== Twitter-button ========================== -->
+						<script>window.twttr = (function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0],
+			    t = window.twttr || {};
+			  if (d.getElementById(id)) return t;
+			  js = d.createElement(s);
+			  js.id = id;
+			  js.src = "https://platform.twitter.com/widgets.js";
+			  fjs.parentNode.insertBefore(js, fjs);
+
+			  t._e = [];
+			  t.ready = function(f) {
+			    t._e.push(f);
+			  };
+
+  				return t;
+				}(document, "script", "twitter-wjs"));
+			</script>
+			<a class="twitter-share-button" 
+				href="https://twitter.com/intent/tweet?text= <%= '"Южная правда": ' + @article.title + ' (' + @article.author + ') ' + original_url %>" data-size="small" url="<%= original_url %>"> Tweet
+			</a>
+			<!-- =========================== Twitter-button end ======================= -->
 			
-	</section> 
+		</section>
+
 <% end %>	
+
+
+
 
 
