@@ -1,34 +1,31 @@
-<div class="editor" >
-<h3> НАЙДЕНО СТАТЕЙ: <%= @results_number %> </h3>
-
-<div class = "digg_pagination"><%= will_paginate @articles %></div>
+<div class="editor">
+<!-- div style = "padding: 0xp 30px 0px 30px;" -->    
+    <h3> НАЙДЕНО СТАТЕЙ: <%= @results_number %> </h3>
+    <div class = "digg_pagination"><%= will_paginate @articles %>
+    </div>
     <% @articles.each do |article| %>
-    <div class="news_info">
-        <h4> <%= article.id %>  
+      <section class="article_list">
+        <div class = "ntime" style = "display: inline; margin:0px;">
+            <% ndate = article.updated_at %>
+            <%= ndate.strftime("%Y %d/%m  %H:%M") %> .......
+            <b>рубрика:    </b><%= article.rubric %> .......  
+            <b>автор:      </b><%= article.author %> .......
+            <b>издание:    </b><%= article.edition %> ......
+            <b>ID:         </b><%= article.id %></p>
+        </div>
+        <div class="zag" style="font-weight: bold;">   
             <%= link_to article.title, 
                 controller: "mainpage",
                 action: "show_item",
-                id: article.id %>
-        </h4>
-        <%# if article.image? %>
-            <%# image_tag article.image.url %>
-        <%# end %>
-
-        <div class = "ntime" style = "display: inline">
-            <% ndate = article.updated_at %>
-            <%= ndate.strftime("%Y %d/%m  %H:%M") %> .......
-            <b>рубрика:    </b> <%= article.rubric %> .......  
-            <b>автор:      </b> <%= article.author %> .......
-            <b>издание:    </b> <%= article.edition %> </p>
+                id: article.id,
+                style: "font-size:18px;" %>
         </div>    
-        <p class="anonce"> <%= sanitize(article.anonce) %> </p>
-       <!--  <div class = "content"><%= sanitize(article.content) %> </div> -->
-    </div>
+        <p class="anonce" style="margin:0px;"> <%= sanitize(article.anonce) %> </p>
+        <p  style="margin:0px;">-----------------------------------------------------------------------</p>
+      </section>
     <% end %>
     <br />
-<div class = "digg_pagination"><%= will_paginate @articles %></div>  
+    <div class = "digg_pagination"><%= will_paginate @articles %>
+    </div>
+<!-- /div -->      
 </div>
-
-
-
-

@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       fulltext params[:search]
     end
     @results_number = @search.results.size
-    @articles = @search.results.paginate(page: params[:page], per_page:3)
+    @articles = @search.results.last(60).paginate(page: params[:page], per_page:30)
     
     respond_to do |format|
       format.html # index.html.erb
