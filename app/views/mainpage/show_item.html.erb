@@ -10,7 +10,7 @@
 	    	<div class = "ntime" style = "display: inline; font-size: 14px;">
 				<% ndate = @article.updated_at.getlocal %>
 				<p style = "display: inline; color:#933; font-weight: bold;"><%= ndate.strftime("%d-%b-%Y ..... %H:%M") + " ....." %></p>
-				<p style = "display: inline; font-weight: bold;"><%= @article.author + ". " + @article.edition + " ..... " %></p>
+				<p style = "display: inline; font-weight: bold;"><%= @article.edition + " ..... " %></p>
 				<%= @article.rubric.mb_chars.upcase.to_s + " (" + @article.genre + ")" %>
 			</div>
 	    	<h1> <%= @article.title %></h1>
@@ -22,8 +22,8 @@
 			<%# sanitize(@article.content) %> 
 			<%= simple_format(@article.content) %> 
 			<!--/div --> <!-- article_info -->
-			<p style = "font-size: 16px; font-weight: bold;">
-				<%= original_url %>
+			<p style = "font-size: 14px; font-weight: bold; text-align: right;">
+				<%= @article.author %>
 			</p>
 			<!-- ========================= FB-like-button script ======= -->
 			<div id="fb-root"></div>

@@ -88,7 +88,7 @@ def nikolaevnews_index
 
   def show_item
       @article = Article.find(params[:id])
-    render layout: "items"
+    render layout: "item_article"
   end
 
 
