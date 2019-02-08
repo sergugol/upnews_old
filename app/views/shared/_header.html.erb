@@ -44,21 +44,49 @@
 							<!-- було "mainpage/index" і працювало з *other/mainpage/index  -->
 							<!-- root_path   не працює, тому що root перевизначен як mainpage -->
 			
-			<li><%= link_to 'новости.МИР', 
+			<li><%= link_to 'Мир', 
 							controller: "mainpage",
 							action: "worldnews_index" %></li>
 			
-			<li><%= link_to 'новости.УКРАИНА', 
+			<li><%= link_to 'Украина', 
 							controller: "mainpage",
 							action: "ukrainenews_index" %></li>
 
-			<li><%= link_to 'новости.НИКОЛАЕВ и обл.', 
+			<li><%= link_to 'Николаев и обл.', 
 							controller: "mainpage",
 							action: "nikolaevnews_index" %></li>
 
-			<li><%= link_to 'СТАТЬИ', 
+			<li><%= link_to 'ПОЛИТИКА',
 							controller: "mainpage",
-							action: "allarticles_index" %></li>							
+							action: "rubric_index",
+							rubric_name: "Политика" %></li>
+
+			<li><%= link_to 'ВЛАСТЬ', 
+							controller: "mainpage",
+							action: "rubric_index",
+							rubric_name: "Власть" %></li>
+
+			<li><%= link_to 'ЭКОНОМИКА', 
+							controller: "mainpage",
+							action: "rubric_index",
+							rubric_name: "Экономика" %></li>	
+
+			<li><%= link_to 'СОЦИУМ', 
+							controller: "mainpage",
+							action: "rubric_index",
+							rubric_name: "Социум" %></li>
+			<li><%= link_to 'КУЛЬТУРА', 
+							controller: "mainpage",
+							action: "rubric_index",
+							rubric_name: "Культура" %></li>
+			<li><%= link_to 'ЧЕЛОВЕК', 
+							controller: "mainpage",
+							action: "rubric_index",
+							rubric_name: "Человек" %></li>
+
+			<li><%= link_to 'Публикации', 
+							controller: "mainpage",
+							action: "allarticles_index" %></li>
 		</ul>
 	</nav>
 

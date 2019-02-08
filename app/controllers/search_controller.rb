@@ -9,6 +9,6 @@ class SearchController < ApplicationController
 	  @search = Article.search do
 	    fulltext params[:search]
 	  end
-	  @articles = @search.results.last(60).paginate(page: params[:page], per_page:30)
+	  @articles = @search.results.paginate(page: params[:page], per_page:30)
 	end
 end
