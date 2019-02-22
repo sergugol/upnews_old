@@ -12,8 +12,8 @@ capybara-*.html
 /public/assets/reclams
 /coverage/
 /spec/tmp
-/solr
-/solr/data/production/index
+/solr/*.*
+/solr/data/production/index/*
 *.orig
 rerun.txt
 pickle-email-*.html
