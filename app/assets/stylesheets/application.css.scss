@@ -161,8 +161,8 @@ background-color: #FFF; /* #696 */
 				li:first-child { padding-left : 0; }
 				li:last-child { padding-right : 0; border-right-width : 0; }
 				a: {font-family: verdana, arial, helvetica, sans-serif; color : $c1; }
-				a:link { font-size: 14px; color : $c6; }
-				a:visited { color : $c1 + #444444; font-weight : bold; text-decoration : none; text-transform : uppercase; }
+				a:link { font-size: 14px; color : $c1; }
+				a:visited { color : $c1; font-weight : bold; text-decoration : none; text-transform : uppercase; }
 				a:hover, a:active, a:focus { background-color : $c2; color : $c6; text-decoration : none; }
 			}
 			

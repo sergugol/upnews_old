@@ -14,9 +14,9 @@
 
 	<div id="action_menu_bar1"> 
 		<ul>
-			<li><a href="#"> <%= link_to 'Контакты',  action: "contacts" %></a></li>
-			<li><a href="#"> <%= link_to 'О газете',  action: "upnewsinfo" %></a></li>
-			<li><a href="#"> <%= link_to 'О рекламе', action: "reclaminfo" %></a></li>
+			<li><%= link_to 'Контакты',  action: "contacts" %></li>
+			<li><%= link_to 'О газете',  action: "upnewsinfo" %></li>
+			<li><%= link_to 'О рекламе', action: "reclaminfo" %></li>
 			
 		</ul>
 	</div>
@@ -93,10 +93,10 @@
 	<div id="action_menu_bar2">
 		<ul>
 		<% if editor_signed_in? %>
-			  	<li><a href="#"><%= link_to 'Статьи', controller: "articles" %></a></li>
-				<li><a href="#"><%= link_to 'PDF', controller: "pdfpages" %></a></li>
-				<li><a href="#"><%= link_to 'Инфограф.', controller: "infografics" %></a></li>
-				<li><a href="#"><%= link_to 'Реклама', controller: "reclams" %></a></li>
+			  	<li><%= link_to 'Статьи', controller: "articles" %></li>
+				<li><%= link_to 'PDF', controller: "pdfpages" %></li>
+				<li><%= link_to 'Инфограф.', controller: "infografics" %></li>
+				<li><%= link_to 'Реклама', controller: "reclams" %></li>
 				<li><%= link_to('Выход', destroy_editor_session_path, :method => :delete) %></li>
 		<% else %>
 			<li><%= link_to('Админ', new_editor_session_path)  %></li>
