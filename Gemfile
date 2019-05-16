@@ -31,7 +31,7 @@ gem 'seed_dump', :git => 'https://github.com/zenprogrammer/seed_dump.git'
 # 2013-04-30
 gem 'will_paginate', '~> 3.0' 
 
-# 2013-05-13, for image-files uploading
+# 2013-05-13, for image-files uploading #
 gem 'paperclip', '~> 3.0'
 
 gem 'rmagick' 
