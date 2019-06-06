@@ -80,4 +80,4 @@ gem 'rake'
 
 #2015-07-06 on error "Error installing rails: i18n requires Ruby version >= 1.9.3."
 gem 'i18n', '0.6.11'
-gem 'turbolinks', '~> 5.2'
+#gem 'turbolinks', '~> 5.2'

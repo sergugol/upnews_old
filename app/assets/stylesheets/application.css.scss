@@ -160,10 +160,10 @@ background-color: #FFF; /* #696 */
 				li { display : inline; padding : 0 5px; border-right : 1px solid $c2; }
 				li:first-child { padding-left : 0; }
 				li:last-child { padding-right : 0; border-right-width : 0; }
-				a: {font-family: verdana, arial, helvetica, sans-serif; color : $c1; }
-				a:link { font-size: 14px; color : $c1; }
-				a:visited { color : $c1; font-weight : bold; text-decoration : none; text-transform : uppercase; }
-				a:hover, a:active, a:focus { background-color : $c2; color : $c6; text-decoration : none; }
+				a: {font-family: verdana, arial, helvetica, sans-serif; color : black; }
+				a:link { font-size: 14px; color : black; }
+				a:visited { color : gray; font-weight : bold; text-decoration : none; text-transform : uppercase; }
+				a:hover, a:active, a:focus { background-color : $c2; color : blue; text-decoration : none; }
 			}
 			
 			#action_menu_bar2 {

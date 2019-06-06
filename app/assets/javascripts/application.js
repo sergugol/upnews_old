@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require jquery.easing
 //= require jquery.slidorion.min
-//= require turbolinks
 //= require_tree .
