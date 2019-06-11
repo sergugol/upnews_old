@@ -60,28 +60,28 @@ class MainpageController < ApplicationController
 end
 
   def worldnews_index
-      @worldnews_articles = Article.find_all_by_rubric_and_genre("Мир","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)
+      @worldnews_articles = Article.find_all_by_rubric_and_genre("Мир","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:20)
     render layout: "items"
   end  
 
   def ukrainenews_index
-      @ukrainenews_articles = Article.find_all_by_rubric_and_genre("Украина","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)    
+      @ukrainenews_articles = Article.find_all_by_rubric_and_genre("Украина","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:20)    
     render layout: "items"
   end    
 
 def nikolaevnews_index
-      @nikolaevnews_articles = Article.find_all_by_rubric_and_genre("Николаевщина","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)    
+      @nikolaevnews_articles = Article.find_all_by_rubric_and_genre("Николаевщина","новость").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:20)    
     render layout: "items"
   end   
 
   def allarticles_index
       # @allarticles = Article.find_all_by_genre("статья", "топ").last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)    
-      @allarticles = Article.find_by_sql('SELECT * FROM articles WHERE genre IN ("статья", "топ");').last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:7)
+      @allarticles = Article.find_by_sql('SELECT * FROM articles WHERE genre IN ("статья", "топ");').last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:20)
     render layout: "items"
   end   
 
   def rubric_index
-      @rubric_articles = Article.find_all_by_rubric(params[:rubric_name]).last(50).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:10)
+      @rubric_articles = Article.find_all_by_rubric(params[:rubric_name]).last(200).sort!{ |a,b| b.created_at <=> a.created_at }.paginate(page: params[:page], per_page:20)
       @rubric_name = params[:rubric_name]    
     render layout: "rubric_items"
   end

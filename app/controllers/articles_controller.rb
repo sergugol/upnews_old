@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
  def index
-   @articles = Article.order(sort_column + ' ' + sort_direction).paginate page: params[:page], per_page: 50
+   @articles = Article.order(sort_column + ' ' + sort_direction).paginate page: params[:page], per_page: 200
    @sort_column = sort_column
    @sort_direction = sort_direction
       respond_to do |format|
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
       fulltext params[:search]
     end
     @results_number = @search.results.size
-    @articles = @search.results.last(60).paginate(page: params[:page], per_page:30)
+    @articles = @search.results.last(200).paginate(page: params[:page], per_page:100)
     
     respond_to do |format|
       format.html # index.html.erb
