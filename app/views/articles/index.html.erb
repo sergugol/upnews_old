@@ -24,7 +24,7 @@
         </tr>
       <% @articles.each do |article| %>
         <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-            <td ><%= article.updated_at.getlocal.strftime("%m/%d/%y %H:%M ") %></td>
+            <td ><%= article.created_at.getlocal.strftime("%m/%d/%y %H:%M ") %></td>
             <td><%= truncate(strip_tags(article.rubric), length: 12) %></td>
             <td><%= truncate(strip_tags(article.genre),  length: 10) %></td>
             <td><%= truncate(strip_tags(article.author), length: 15) %></td>
